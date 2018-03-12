@@ -5,8 +5,7 @@
 Lorem markdownum esto *cruore tellus illum* hic aut coluit vires mille et
 melior, relinquam. Et bucina in iuncti sordidus non cetera tempora, arma. Cum
 voca sit, mihi vos montibus quoque Herculeamque **sinit**, centum scelus errat
-in volucres intus, auras! Trux tua, castra, tantaque cum erat Iuno suis usquam
-iussa adiuvet quod!
+in volucres intus, auras!
 
 > Potentia annosa infecit quod curvae quod causa, quo posset! Coniunx suum
 > *respondent* lassor, montes, superabat venabula. Natarum cava; Aurora **ipsis
