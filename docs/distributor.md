@@ -1,30 +1,37 @@
 # Mortis regia resolutaque
 
-This is distributor
-## Propiore in mori Ortygiam Aeacides plena noluit
+Distributor is the main class/entity that controls and distributes host sessions to manage tasksets. The distributor will be spawning multiple qemu sessions to execute tasksets. The qemu sessions will be waiting for events from the Gnode session. 
 
-Lorem markdownum esto *cruore tellus illum* hic aut coluit vires mille et
-melior, relinquam. Et bucina in iuncti sordidus non cetera tempora, arma. Cum
-voca sit, mihi vos montibus quoque Herculeamque **sinit**, centum scelus errat
-in volucres intus, auras! Trux tua, castra, tantaque cum erat Iuno suis usquam
-iussa adiuvet quod!
+Requirements:
 
-> Potentia annosa infecit quod curvae quod causa, quo posset! Coniunx suum
-> *respondent* lassor, montes, superabat venabula. Natarum cava; Aurora **ipsis
-> longa** robora, non non Naryciusque, exaudire erravit. Mollibus tu septem
-> potest, esset arent legum nec.
+Networking capabilities (dhcp,bridge,tap,...)
 
-## Cunasque pallidaque virumque
 
-Aeacides audentem prius peremptam aras qua laborant vitium naribus. Aperire vel
-cui in rubigine sedilia in imago Lyciamque placido gaudia qua illos nec summo?
-Praecipites Iove nequiquam gravitate digitos, colla, datus carior et. Tuae
-terris inferius: sedens: o laboras, si etiam dicta sensura eunti. Volucrum
-[tantaeque tot sit](http://sceptroque-extulit.com/nimis-adhuc) modo cineri
-aperto honorem radiantia vallibus nobis.
+## How to use
 
-> Metuit oblitae, sanguine rustica, deo saltu inridet fixerat? Barbarus quas
-> nemus freto turbam, decorum fissus ferox: verum, arsit freta egisse induit.
+
+1. Start DHCP Server with (Enter command here)
+
+2. Start up distributor 
+
+3. Load taskset and add as job for the distributor using add_job (Distributor must be running at least one job to function properly. (Gnode ignores any case with 0 jobs)
+
+Example:
+
+loggingMonitor = loggingMonitor() #Convenient output and trace analyzer
+taskset = MyTaskSet()  
+distributor = Distributor()
+
+dist.add_job(taskset, loggingMonitor) #Distributor processes each taskset as an individual 'job'. You can add as many job as you would like as long as you have at least one. 
+
+
+
+
+
+## Distributor Functions
+
+"""Setting max machines to whichever value you would like. You can change this as the distributor is running as this only affects the maximum total number of spawned machines"""
+set_max_machine_value(numMachines):
 
 ## Hippomenes de inque Antiphataeque totumque non illic
 
