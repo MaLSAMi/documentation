@@ -1,6 +1,9 @@
-# Overview of Modules
+# Distributor and other relevant Modules
 
-Distributor is the main class/entity that controls and distributes host sessions to manage tasksets. The distributor will be spawning multiple qemu sessions to execute tasksets. The qemu sessions will be waiting for events from the Gnode session. 
+Distributor is the main class/entity that controls and distributes host sessions to manage tasksets. Upon startup, the distributor will have a set value of host sessions that it will be able to spawn. The user is permitted to change this number at any time. Machines set to be killed will finish their assigned taskset before being killed. 
+
+Machine is the entire class that represents the machine that is executing the tasksets. This class is responsible for creating the QEMU instance (connected to the provided bridge) with Genode, to sending tasksets while listening for events from Genode. 
+
 
 Requirements:
 
@@ -16,6 +19,7 @@ Install bridge functionality for networking:
 
 
 
+    cd client-tools
     sudo apt-get update -qq
     sudo apt-get install python3.5 -qq #probably needs sudo
     sudo apt-get  install python3-pip -qq
@@ -41,11 +45,11 @@ Install qemu and screen for spawning host sessions from the distributor and for 
     sudo apt-get install screen -qq
 
 
-Download DHCP service and create configuration file which will be provided. 
+Download DHCP service and move provided configuration file. 
 
 
     sudo apt-get install nmap isc-dhcp-server -qq
-    sudo cp /vagrant/dhcpd.conf /etc/dhcp/
+    sudo cp dhcpd.conf /etc/dhcp/
     sudo apt-get install htop -qq
 
 
@@ -56,21 +60,32 @@ Set up the bridge and assign an IP address (consult the dhcp.conf file for more 
     sudo ip addr add 10.200.40.1/21
 
 
-The machine should now be read for use!
-
-To start the distributor use
+The machine should now be ready for use. Let's start the distributor now. 
 
 
-1. Start DHCP Server with (Enter command here)
+Start DHCP Server with <Enter command here>
 
-2. Open the python interactive shell or a script and add appropriate imports (We have provided an example taskset for you to use in the file 'example.py'. You are welcome to use your own)
+Open up the interactive python shell (You can also create and execute this in a script)
+
+
+    cd distributor_service
+    sudo python3
+
+
+
+Add appropriate imports (We have provided an example taskset for you to use in the file 'example.py'. You are welcome to use your own)
+
 
 
     from example import Hey0TaskSet
     from monitors.loggingMonitor import LoggingMonitor #Logging tool for trace analyzing
     from distributor import Distributor
 
-3. Initialize modules
+
+
+
+Initialize modules
+
 
 
     t = Hey0TaskSet()
@@ -78,21 +93,39 @@ To start the distributor use
     dist = Distributor()
 
 
-4. Start a job 
+
+Start a job 
+
+   
 
     dist.add_job(t,lm)
+
+
+
 
 
 Note: You can repeat the above command to execute multiple jobs whenever you please. However, at least 1 job must be executed for the distributor to work. 
 
 
-5. To view the qemu instances 
+To view the qemu instances 
+
+
+
 
     screen -dmS tap0 bash -c "qemu-system-arm -net tap,ifname=tap0,script=no,downscript=no -net nic,macaddr=0a:06:00:00:00:01 -net nic,model=lan9118 -nographic -smp 2 -m 1000 -M realview-pbx-a9 -kernel ../image.elf"
 
-6. In a separate shell, you can trace the execution of the distributor by executing
+
+
+
+In a separate shell, you can trace the execution of the distributor by executing
+
+
+
 
     tail -f log/distributor.log
+
+
+
 
 
 7.Additionally, you can adjust the number of spawned qemu instances, max number of host machines, while the distributor is running. See the distributor functions for more information. 
@@ -100,27 +133,43 @@ Note: You can repeat the above command to execute multiple jobs whenever you ple
 
 
 
-## Modules 
-
-Distributor
 
 
-## Distributor Functions
 
-"""Setting max machines to whichever value you would like. You can change this as the distributor is running as this only affects the maximum total number of spawned machines"""
+## Distributor functions
+
+Setting max machines to whichever value you would like. You can change this as the distributor is running as this only affects the maximum total number of spawned machines
 
 
-set_max_machine_value(numMachines)
+        set_max_machine_value(numMachines)
+
+
+
 
 Function to check if the distributor is working or not. 
 
-get_distributor_state()
+        get_distributor_state()
 
-get_max_machine_value
 
-add_job(taskete, session_parameters)
-"Each job contians a 'takset' for the distributor to handle. "
 
+Return current maximum value of allowable active machines
+
+
+        get_max_machine_value
+
+
+Given a taskset and other data provided by the sessions class (optional), this will add the taskset to the TaskSetQueue. Then it will distribute the taskset by either spawning a new machine or assigning it to the current available machines running. Distributor must be running at least one job for it to be active. 
+
+
+        add_job(taskete, session_parameters)
+
+
+Kill all machines that are currently running
+
+
+        kill_all
+
+        
 
 ## Machine Functions
 
