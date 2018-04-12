@@ -1,4 +1,4 @@
-# Mortis regia resolutaque
+# Overview of Modules
 
 Distributor is the main class/entity that controls and distributes host sessions to manage tasksets. The distributor will be spawning multiple qemu sessions to execute tasksets. The qemu sessions will be waiting for events from the Gnode session. 
 
@@ -7,7 +7,35 @@ Requirements:
 Networking capabilities (dhcp,bridge,tap,...)
 
 
-## How to use
+## How to use the distributor
+
+A vagrant script is provided in the client-tools folder which will set up the development environment. The scripts provision.sh and bootstrap.sh provide the appropriate packages that need to be downloaded. If you would like to do this manually:
+
+The script is provided below: 
+
+Simple python updates:
+    sudo apt-get update -qq
+    sudo apt-get install python3.5 -qq #probably needs sudo
+    sudo apt-get  install python3-pip -qq
+
+Networking functionality which allows bridge creation and other networking capabilities. 
+    sudo apt-get install bridge-utils -qq
+sudo pip3 install service #should be pip3, do same commandswork? https://pypi.python.org/pypi/service/0.4.1
+sudo pip3 install pynetlinux #1.1 or somewhat close with the 1.1 and everything https://pypi.python.org/pypi/pynetlinux/1.1
+
+
+
+    sudo sh -c 'echo "import sys\nsys.path.append(\"/usr/local/lib/python3.5/dist-packages/pynetlinux\")\n$(cat /usr/local/lib/python3.5/dist-packages/pynetlinux/__init__.py)" > /usr/local/lib/python3.5/dist-packages/pynetlinux/__init__.py'
+    sudo sh -c 'echo "auto br0\niface br0 inet dhcp\nbridge_ports eth0\nbridge_stp off\nbridge_maxwait 0\nbridge_fd 0\n" >> /etc/network/interfaces'
+
+Install qemu and screen for spawning hosts 
+    sudo apt-get install qemu -qq
+    sudo apt-get install screen -qq
+
+Download DHCP service and create configuration file which will be provided. 
+    sudo apt-get install nmap isc-dhcp-server -qq
+    sudo cp /vagrant/dhcpd.conf /etc/dhcp/
+    sudo apt-get install htop -qq
 
 
 1. Start DHCP Server with (Enter command here)
@@ -25,23 +53,33 @@ distributor = Distributor()
 dist.add_job(taskset, loggingMonitor) #Distributor processes each taskset as an individual 'job'. You can add as many job as you would like as long as you have at least one. 
 
 
+## Modules 
 
+Distributor
 
 
 ## Distributor Functions
 
 """Setting max machines to whichever value you would like. You can change this as the distributor is running as this only affects the maximum total number of spawned machines"""
-set_max_machine_value(numMachines):
 
-## Hippomenes de inque Antiphataeque totumque non illic
 
-Si moverat procul descendi fatidicus campus et ullos pressaeque quorum pendebant
-spargit formam calidi. Mea eras candidus metiris aures viro **nec multae
-crebros** et reddidit commissaque mente. Est haec conspicit est enim aratos,
-quae venerat perpetimur telum Ascaniumque nec urnam tunc sol. Vacuis rebus,
-setius? Edax igne adfectas naides caput, summique et Actaeon comas inter.
+set_max_machine_value(numMachines)
 
-## Sic etiam denique fessa lacrimae Minervae qua
+Function to check if the distributor is working or not. 
+
+get_distributor_state()
+
+get_max_machine_value
+
+add_job(taskete, session_parameters)
+"Each job contians a 'takset' for the distributor to handle. "
+
+
+## Machine Functions
+
+
+
+
 
 Cadunt et multas intercipit dea auctor abstrahit, deorum cum titulis *fracta te*
 Theseus anxius. Modo turbida animoque; tibi auctor viam bitumen, Echion est
