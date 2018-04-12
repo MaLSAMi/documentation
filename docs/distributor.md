@@ -7,35 +7,56 @@ Requirements:
 Networking capabilities (dhcp,bridge,tap,...)
 
 
-## How to use the distributor
+## Set up and Configuration
 
-A vagrant script is provided in the client-tools folder which will set up the development environment. The scripts provision.sh and bootstrap.sh provide the appropriate packages that need to be downloaded. If you would like to do this manually:
+A vagrant script is provided in the client-tools folder which will set up the appropriate development environment and prepare it for use without any manual installation or configuration. However, if you would like to configure your host machine manually, follow the steps below:
 
-The script is provided below: 
 
-Simple python updates:
+Install bridge functionality for networking:
+
+
+
     sudo apt-get update -qq
     sudo apt-get install python3.5 -qq #probably needs sudo
     sudo apt-get  install python3-pip -qq
-
-Networking functionality which allows bridge creation and other networking capabilities. 
     sudo apt-get install bridge-utils -qq
-sudo pip3 install service #should be pip3, do same commandswork? https://pypi.python.org/pypi/service/0.4.1
-sudo pip3 install pynetlinux #1.1 or somewhat close with the 1.1 and everything https://pypi.python.org/pypi/pynetlinux/1.1
 
+
+
+Add appropriate imports to appropriate files 
 
 
     sudo sh -c 'echo "import sys\nsys.path.append(\"/usr/local/lib/python3.5/dist-packages/pynetlinux\")\n$(cat /usr/local/lib/python3.5/dist-packages/pynetlinux/__init__.py)" > /usr/local/lib/python3.5/dist-packages/pynetlinux/__init__.py'
+
+Adjust /etc/network/interfaces file with preliminary networking information
+
+
     sudo sh -c 'echo "auto br0\niface br0 inet dhcp\nbridge_ports eth0\nbridge_stp off\nbridge_maxwait 0\nbridge_fd 0\n" >> /etc/network/interfaces'
 
-Install qemu and screen for spawning hosts 
+
+Install qemu and screen for spawning host sessions from the distributor and for easy visualization of spawned sessions. 
+
+
     sudo apt-get install qemu -qq
     sudo apt-get install screen -qq
 
+
 Download DHCP service and create configuration file which will be provided. 
+
+
     sudo apt-get install nmap isc-dhcp-server -qq
     sudo cp /vagrant/dhcpd.conf /etc/dhcp/
     sudo apt-get install htop -qq
+
+
+Set up the bridge and assign an IP address (consult the dhcp.conf file for more information on IP ranges)
+
+
+    sudo brctl addbr br0
+    sudo ip addr add 10.200.40.1/21
+
+
+The machine should now be read for use!
 
 
 1. Start DHCP Server with (Enter command here)
