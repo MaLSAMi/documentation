@@ -169,3 +169,16 @@ The 'machine.py' implements a class which extends threading.Thread.
 
 An instance of Machine is taking care of spawning a host, creating a session which connects to the spawned host and acquiring tasksets while there still is work to be done.
 
+## The Monitor component
+
+The provided monitor 'mon' has to implement the AbstractMonitor as defined in distributor\_service/monitor.py
+
+Everytime after a taskset finished execution
+
+    mon.__taskset_finish__(self, finished_taskset)
+
+is called. This is the function which should write data into a database of some kind.
+
+    mon.__taskset_stop__(self, running_taskset)
+
+is called if a taskset was not finished but the machine could not finish the current set. This method should clear the jobs attribute of every task in the set.  
