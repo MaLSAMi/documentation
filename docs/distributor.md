@@ -1,13 +1,7 @@
-# Distributor and other relevant Modules
+# Distributor 
 
-Distributor is the main class/entity that controls and distributes host sessions to manage tasksets. Upon startup, the distributor will have a set value of host sessions that it will be able to spawn. The user is permitted to change this number at any time. Machines set to be killed will finish their assigned taskset before being killed. 
+Distributor is the main class/entity that controls and distributes host sessions to manage tasksets. Upon startup, the distributor will have a set value of host sessions that it will be able to spawn. The user is permitted to change this number at any time. Machines set to be killed will finish their assigned taskset before being killed. The distributor is mainly used for gathering large-scale data about autonomous system schedulability-tasks of which can be used for data mining and analysis. 
 
-Machine is the entire class that represents the machine that is executing the tasksets. This class is responsible for creating the QEMU instance (connected to the provided bridge) with Genode, to sending tasksets while listening for events from Genode. 
-
-
-Requirements:
-
-Networking capabilities (dhcp,bridge,tap,...)
 
 
 ## Set up and Configuration
@@ -169,9 +163,9 @@ Kill all machines that are currently running
 
         kill_all
 
-        
 
-## Machine Functions
+
+## Next
 
 
 
