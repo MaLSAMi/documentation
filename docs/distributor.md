@@ -58,20 +58,46 @@ Set up the bridge and assign an IP address (consult the dhcp.conf file for more 
 
 The machine should now be read for use!
 
+To start the distributor use
+
 
 1. Start DHCP Server with (Enter command here)
 
-2. Start up distributor 
+2. Open the python interactive shell or a script and add appropriate imports (We have provided an example taskset for you to use in the file 'example.py'. You are welcome to use your own)
 
-3. Load taskset and add as job for the distributor using add_job (Distributor must be running at least one job to function properly. (Gnode ignores any case with 0 jobs)
 
-Example:
+    from example import Hey0TaskSet
+    from monitors.loggingMonitor import LoggingMonitor #Logging tool for trace analyzing
+    from distributor import Distributor
 
-loggingMonitor = loggingMonitor() #Convenient output and trace analyzer
-taskset = MyTaskSet()  
-distributor = Distributor()
+3. Initialize modules
 
-dist.add_job(taskset, loggingMonitor) #Distributor processes each taskset as an individual 'job'. You can add as many job as you would like as long as you have at least one. 
+
+    t = Hey0TaskSet()
+    lm = LoggingMonitor()
+    dist = Distributor()
+
+
+4. Start a job 
+
+    dist.add_job(t,lm)
+
+
+Note: You can repeat the above command to execute multiple jobs whenever you please. However, at least 1 job must be executed for the distributor to work. 
+
+
+5. To view the qemu instances 
+
+    screen -dmS tap0 bash -c "qemu-system-arm -net tap,ifname=tap0,script=no,downscript=no -net nic,macaddr=0a:06:00:00:00:01 -net nic,model=lan9118 -nographic -smp 2 -m 1000 -M realview-pbx-a9 -kernel ../image.elf"
+
+6. In a separate shell, you can trace the execution of the distributor by executing
+
+    tail -f log/distributor.log
+
+
+7.Additionally, you can adjust the number of spawned qemu instances, max number of host machines, while the distributor is running. See the distributor functions for more information. 
+
+
 
 
 ## Modules 
