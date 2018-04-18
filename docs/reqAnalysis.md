@@ -73,17 +73,43 @@ A GAN in general does not describe the structure of the used neural network, but
 Typically the generator is a deconvolutional network, often generating images, and the second network is a convolutional network, evaluating the image.
 
 ####RNN
-TODO
+A Recurrent Neural Networks are a type of network that utilizes 'memory'. These networks are very similiar to regular feed forward networks except for their ability to process previously analyzed data along with current data. These types of networks are especially beneficial for temporal or time behavior. This type of network could prove to be fruitful in the online learning phase as this network can better analyze recent events and use them in the learning process. At the same time, thie network will still be heavy duty and possibly computationally more expensive than the regular feed-forward network. 
+
+
 ####CNN
-TODO
+
+A convolutional networks biggest strenght is in its ability to extract important features when given a lot of information that it may not necessarily need. This would be useful if the distributor provides data with a lot of information that is not good for anything that always happens to find its way in the data. This is good for figuring out which information is useful in the learning process and which isn't. 
+
 ####FNN
-In a previous Bachelors Thesis a student achieved some learning on a very simple FFN classifyer. 
+In a previous Bachelors Thesis a student achieved some learning on a very simple FFN classifyer. A feed forward network should be one of the first networks to train as it is the simplest of the network models and its results will indicate whether more advanced networks are necessary. Similiarly, a simple and initial structure of the network will provide information about how the data is possible. Analysis of th learning of a FFN is much simpler than trying to analyze what is going on in the other structures above.  
 
 
 
 
 
-TODO: add varuns learning part
+####Shallow Learning
 
+Shallow Learning represents the techniques that are not 'deep learning' or in the case of this project, those of which do not utilize a neural network or multi-layer perceptron. The algorithms that will be tested under the topic of 'shallow learning' are Support Vector Machines, k-Nearest Neibhbors (kNN), Logistic Regression, Gaussian Naive Bayes, and Decision Trees/Random Forests. Testing these algorithms will give insight into which kind of data we are seeing. From this information we can than better suit out models to provide the best type of learning possible.  
+
+###Suppor Vector Machines
+
+Suppor Vector machines are effective classifiers for any kind of mapping. A linear support vector machine is unlikely to linearly separate the data and so a polynomial estimate is the first hypothesized choice for testing. However, for completeness, we will use a grid search support vector machine fitting to find the optimal support vector machine. Grid searching is an exhaustive process and takes a lot of time. This is where increased cpu power will come in handy. Additionally, the preproccesing step to divide the classes into respective classification assignments is also important and will assist in more accuracte predictions. 
+
+###K-Nearest Neighbor 
+
+This is a simple clustering technique. An unlikely optimal fitting algorithm, but must be tested for completeness and control. The benefit of this approach is its ability to handle noisy and large amounts of data in a relatively simple way. Noisy and faulty data is very likely to happen in this case with all the data that will be gathered. However, data with multiple features will not be well represented by this algorithm. The prediction power of this algorithm drops drastically for every feature added. The accuracy (or non-accuracy) of this algorithm will give insight into the number of features and the natural grouping of the data. This can asssist in the other more specialized neural networks. 
+
+
+###Logistic Regression
+
+This approach is good at formulizing a pattern based on the previous data analyzed. The issues are its likeliness to overfit given a lot of data. However, when there is not much noise in the data, this algorithm is likely to perform very well as it can analyze patterns better than some of the more rudimentary algorithms. Furthermore, it is highly adept at understanding patterns and attempting to map all the data under a single formula. This can prove effective if the data appears to be correlated in any way. 
+
+###Gaussian Naive Bayes 
+
+A simple and easy algorithm that should be the baseline performance in which the other algorithms are measured. A simple math formula which is easy to calculate and requires virtually no extra overhead. 
+
+###Decision Trees/Random Forest
+
+Decision Trees are beneficial for their ability to process and classify virtually any type of data. Random Forests are more advanced version of decision trees and usually perform very well. Both can be tested. However, the random forest is the more likely algorithm. 
 
 target: online scheduling on RT systems
