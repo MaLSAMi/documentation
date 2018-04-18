@@ -6,15 +6,24 @@ Distributor is the main class/entity that controls and distributes host sessions
 
 ## Set up and Configuration
 
-A vagrant script is provided in the client-tools repository, which will set up the appropriate development environment and prepare it for use without any manual installation or configuration. However, if you would like to configure your host machine manually, follow the steps below:
+A **vagrant** script is provided in the client-tools repository, which will set up the appropriate development environment and prepare it for use without any manual installation or configuration besides starting the dhcp service via
+
+    sudo systemctl start isc-dhcp-server
+
+However, if you would like to configure your host machine **manually**, follow the steps below:
 
 Clone the client-tools repository and initialize the submodules and place a working image.elf file inside the client-tools directory.
 
 
-Install Python 3.5
+Install Python 3.5 and pip3
 
 
     sudo apt-get install python3.5 -qq
+    sudo apt-get  install python3-pip -qq
+
+Install the requirements for the taskgen module
+
+    sudo pip3 install -r client-tools/taskgen/requirements.txt
 
 
 Install bridge functionality for networking:
@@ -33,7 +42,7 @@ Set up the bridge and assign an IP address (consult the dhcp.conf file for more 
 
 
     sudo brctl addbr br0
-    sudo ip addr add 10.200.40.1/21
+    sudo ip addr add 10.200.40.1/21 dev br0
 
 
 Adjust /etc/network/interfaces file with preliminary networking information
