@@ -64,24 +64,30 @@ TODO
 When it comes to learning techniques, there are many options. MaLSAMi is going to look into Deep and Shallow Learning based data analysis and decision making.
 
 ####Deep Learning
-When it comes to Deep Learning there exist a variety of neural network models like Generative Adversarial Networks (GAN), Spiking Neural Networks (SNN), Feed Forward Networks (FNN), Recurrent Neural Networks (RNN) or Convolutional  CNN, just to name a few. But neural networks are usually not a 'one fits all' type of model.
+Deep Learning works best when there is a lot of data to sample from. These algorithms will be mostly utilized in the 'offline' phase of the learning. Deep Learning has a variety of different neural network models such as Generative Adversarial Networks (GAN), Spiking Neural Networks (SNN), Feed Forward Networks (FNN), Recurrent Neural Networks (RNN) and Convolutional  CNN.  These networks are specializied for specific types of data mining and analysis and are never a 'one fits all' model. Therefore, we plan to analyze several of these different models. Each of the networks listed below are catered to a certain kind of problem, but they are not too specialized to be unadaptable. 
 
 TODO research: evaluation time/training time directly dependant on  width /depth of network
 
 ####GAN
-A GAN in general does not describe the structure of the used neural network, but that there are two types of neural networks which work together (or against each other). One generates data similar to some real dataset and the second network, which was formerly trained on the original dataset evaluates the generated data. The generator wants to "fool" the evaluating network into classifying the generated data as real. While training the generator becomes better at creating data close to the real dataset and the evaluating network is becoming better at flagging not real data.
-Typically the generator is a deconvolutional network, often generating images, and the second network is a convolutional network, evaluating the image.
+A GAN generally does not describe the structure of the neural network, but rather that there are two types of neural networks which work together (or against each other). One generates data similar to some real dataset and the second network, which was formerly trained on the original dataset evaluates the generated data. The generator intends on "fooling" the evaluating network into classifying the generated data as real. While training, the generator becomes better at creating data close to the real dataset and the evaluating network becomes better at flagging faulty or erroneous data. 
+
+Typically the generator is a deconvolutional network, often generating images, while the second network is a convolutional network, evaluating the image.
 
 ####RNN
-A Recurrent Neural Networks are a type of network that utilizes 'memory'. These networks are very similiar to regular feed forward networks except for their ability to process previously analyzed data along with current data. These types of networks are especially beneficial for temporal or time behavior. This type of network could prove to be fruitful in the online learning phase as this network can better analyze recent events and use them in the learning process. At the same time, thie network will still be heavy duty and possibly computationally more expensive than the regular feed-forward network. 
+A Recurrent Neural Networks are a type of network which utilizes 'memory'. These networks are very similiar to regular feed forward networks except for their ability to process previously analyzed along with current data. These types of networks are especially beneficial for temporal behavior. This type of network could prove to be fruitful in the online learning phase as this network can better analyze recent events and use them in the learning process. At the same time, thie network will still be heavy duty and possibly computationally more expensive than the regular feed-forward network. 
 
+
+####SNN
+
+Spiking Neural Networks refer to any network in which the input nodes(neurons) propogate the information at different times throughout the network. Each input neuron has an activation level in which incoming spikes determines pushes the function higher or lower. These networks most closely model real networks in the brain, as all potential information is not fully processed at each time. The problem is that spiking is a noisy process, and may give a lot of unecessary information. The spikes are part of the learning process, and so the times the neurons are activated is analyzed just as much as what the neurons are sending. The idea of spiking can be applied to any of the other neural networks above, as it resembles more of a hyperparameter than an actual unique network model. A network using spiking is difficult to train as the signal nature of the spikes may be non-continuous and non-differentiable. 
 
 ####CNN
 
-A convolutional networks biggest strenght is in its ability to extract important features when given a lot of information that it may not necessarily need. This would be useful if the distributor provides data with a lot of information that is not good for anything that always happens to find its way in the data. This is good for figuring out which information is useful in the learning process and which isn't. 
+A convolutional networks biggest strength is in its ability to extract the relevant features from an extremely large dataset. Convolutional networks are usually used in image processing as they are effective at processing images based on the information different areas of the image gives. Other than image processing, these types of networks are very good at measuring structured information. This includes text classificatoin and other problems in which the data's placement gives clues as to its meaning. If the data from the distributor happens to be structured in any way, the convolutional network has a good chance of performing well on it. 
+
 
 ####FNN
-In a previous Bachelors Thesis a student achieved some learning on a very simple FFN classifyer. A feed forward network should be one of the first networks to train as it is the simplest of the network models and its results will indicate whether more advanced networks are necessary. Similiarly, a simple and initial structure of the network will provide information about how the data is possible. Analysis of th learning of a FFN is much simpler than trying to analyze what is going on in the other structures above.  
+In a previous Bachelors Thesis a student achieved some learning on a very simple FFN classifyer. A feed forward network should be one of the first networks to train as it is the simplest of the network models which propogates each data point forward and fits the model accordingly. If a high accuracy is attainable through this network, then it will indicate that the data is not too complicated and can be fit with pretty standard algorithms. Furthermore, analyzing and constructing a FFN network and its learning process is much simpler than any of the networks listed above. 
 
 
 
@@ -89,20 +95,20 @@ In a previous Bachelors Thesis a student achieved some learning on a very simple
 
 ####Shallow Learning
 
-Shallow Learning represents the techniques that are not 'deep learning' or in the case of this project, those of which do not utilize a neural network or multi-layer perceptron. The algorithms that will be tested under the topic of 'shallow learning' are Support Vector Machines, k-Nearest Neibhbors (kNN), Logistic Regression, Gaussian Naive Bayes, and Decision Trees/Random Forests. Testing these algorithms will give insight into which kind of data we are seeing. From this information we can than better suit out models to provide the best type of learning possible.  
+Shallow Learning represents the techniques that are not 'deep learning' or in the case of this project, those of which do not utilize a neural network or multi-layer perceptron. The algorithms that will be tested under the topic of 'shallow learning' are Support Vector Machines, k-Nearest Neibhbors (kNN), Logistic Regression, Gaussian Naive Bayes, and Decision Trees/Random Forests. These algorithms' performances should give insight into the types of data we are seeing. From this, we can decide on better ways to fit the data. 
 
 ###Suppor Vector Machines
 
-Suppor Vector machines are effective classifiers for any kind of mapping. A linear support vector machine is unlikely to linearly separate the data and so a polynomial estimate is the first hypothesized choice for testing. However, for completeness, we will use a grid search support vector machine fitting to find the optimal support vector machine. Grid searching is an exhaustive process and takes a lot of time. This is where increased cpu power will come in handy. Additionally, the preproccesing step to divide the classes into respective classification assignments is also important and will assist in more accuracte predictions. 
+Suppor Vector machines are effective classifiers for any kind of classification task. A linear support vector machine is unlikely to linearly separate the data and so a polynomial is the first hypothesized choice. However, for completeness, we will train several different models on the data to obtain the best fit. Although this is an exhaustive process, support vector machines are relatively lightweight and very high regarded for classification tasks. Additionally, the preproccesing step to divide the classes into respective classification assignments is also important and will assist in more accuracte predictions. 
 
 ###K-Nearest Neighbor 
 
-This is a simple clustering technique. An unlikely optimal fitting algorithm, but must be tested for completeness and control. The benefit of this approach is its ability to handle noisy and large amounts of data in a relatively simple way. Noisy and faulty data is very likely to happen in this case with all the data that will be gathered. However, data with multiple features will not be well represented by this algorithm. The prediction power of this algorithm drops drastically for every feature added. The accuracy (or non-accuracy) of this algorithm will give insight into the number of features and the natural grouping of the data. This can asssist in the other more specialized neural networks. 
+This is a simple clustering technique. An unlikely optimal fitting algorithm, but must be tested for completeness and comparison. The benefit of this approach is its ability to handle noisy and large amounts of data in a relatively simple way. Noisy and faulty data is very likely to happen in this case with all the data that will be gathered by the distributor. However, data with multiple features will not be well represented by this algorithm as it fails to scale in multiple dimensions. The accuracy (or non-accuracy) of this algorithm will give insight into the number of features and the natural grouping of the data. This can asssist in the other more specialized neural networks (most notably the convolutional neural networks). 
 
 
 ###Logistic Regression
 
-This approach is good at formulizing a pattern based on the previous data analyzed. The issues are its likeliness to overfit given a lot of data. However, when there is not much noise in the data, this algorithm is likely to perform very well as it can analyze patterns better than some of the more rudimentary algorithms. Furthermore, it is highly adept at understanding patterns and attempting to map all the data under a single formula. This can prove effective if the data appears to be correlated in any way. 
+This approach is good at formulizing a pattern based on the previous data analyzed. The issues are its likeliness to overfit while trying to learn more complicated data. However, when there is not much noise in the data, this algorithm is likely to perform very well as it can easily establish a relationship which explains not only the learned data but also to predict newer data. This algorithm will be useful in understanding any kind of correlation or imminent structure in the data. Logistic Regression is easy to optimize because of its convex objective function. 
 
 ###Gaussian Naive Bayes 
 
