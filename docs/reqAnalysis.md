@@ -55,9 +55,7 @@ Genode
 ##What we can do
 
 ### Checkpointing
-TODO
--Use what David and Alex researched and turned out to work already.
--Research on checkpointing is not going to be part of MaLSAMi.
+
 
 
 ### Learning
@@ -66,7 +64,6 @@ When it comes to learning techniques, there are many options. MaLSAMi is going t
 #### Deep Learning
 Deep Learning works best when there is a lot of data to sample from. These algorithms will be mostly utilized in the 'offline' phase of the learning. Deep Learning has a variety of different neural network models such as Generative Adversarial Networks (GAN), Spiking Neural Networks (SNN), Feed Forward Networks (FNN), Recurrent Neural Networks (RNN) and Convolutional  CNN.  These networks are specializied for specific types of data mining and analysis and are never a 'one fits all' model. Therefore, we plan to analyze several of these different models. Each of the networks listed below are catered to a certain kind of problem, but they are not too specialized to be unadaptable. 
 
-TODO research: evaluation time/training time directly dependant on  width /depth of network
 
 #### GAN
 A GAN generally does not describe the structure of the neural network, but rather that there are two types of neural networks which work together (or against each other). One generates data similar to some real dataset and the second network, which was formerly trained on the original dataset evaluates the generated data. The generator intends on "fooling" the evaluating network into classifying the generated data as real. While training, the generator becomes better at creating data close to the real dataset and the evaluating network becomes better at flagging faulty or erroneous data. 
