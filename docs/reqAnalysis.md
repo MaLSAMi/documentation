@@ -41,22 +41,43 @@ Checkpointing currently includes only the information in the memory. Checkpointi
 
 No data yet, we will have to generate it using the implemented distributor.
 
-Which data can be acuired from the distributor is dependant on the defined monitor, but the most information that can be gained are the parameters of each taskset, which were handed over to the genode operating system, and also the start and stop times of each job of each task and also the exit value.
+Which data can be aquired from the distributor is dependent on the defined monitor, but the most information that can be gained are the parameters of each taskset, which were handed over to the genode operating system, and also the start and stop times of each job of each task and also the exit value.
 
 ### Available Software
 
 Python 3.5.2
-Pytorch v
+Pytorch va
 Cuda v
 Qemu 
 Genode
-
+cxxnet
+Theano
+Torch7
 
 ##What we can do
 
+Multiple frameworks for deep learning and parallel programming. 
+
+Pytorch allows easy high level implementation of deep neural networks along with GPU accelerated computation. This will be especially useful in speeding pu computation of deep neural networks. These GPUs will allow the networks to train on more data in less time. This feature will be especially useful when during the offline training phase, as this is where the GPUs are available.  
+
+There are numerous other frameworks that can be used as well. It is difficult to say which is optimal and usually they all are highly capable. Pytorch is good because of its ease in utilizing GPU architecture with neural networks. However, there are numerous other libraries that are specialized to the type of network or learning technique we are using. Cuda-convnet is another project that utilizes C++ Cuda implementatoin of neural networks. If we observe that the neural networks are performing well and we want to optimize, we can then pursue these libraries. 
+
+Shallow Learning techniques are much simpler than Deep Learning techniques and do not always require very sophisticated libraries. Furthermore, whether or not the learning phase can or should be parallelized can be decided later. 
+
+Given the resources, we have for the offline training phase, we will attempt to parallelize and optimize the algorithms wherever possible. 
+
+After these rudimentary shallow and deep learning techniques are applied. We can look into reinforcement learning, a newer machine learning approach that is especially used for autonomous driving. The main difference between reinforcement learning and regular supervised/unsupervised machine learning is how an agent decides which actions to take based on the environment. We are currently mostly concerned with schedulablitity analysis, which will be learned based on the data itself. However, further analysis of the acquired data and the patterns analyzed may bring some interest into this type of approach. 
+
+
+The ECUs allow us to use multiple forms of information which will be helpful for machine learning training such as lidar, radars, etc. 
+
 ### Checkpointing
 
+Current state and snapshot of resources could be used for restarting in case of ECU failure or other problems. Learning can be done by continually monitoring these states and then using them as inputs into the machine learning models. 
 
+Deep Learning would react better to this as it would be able to properly account for different kinds of input better than shallow learning techniques. Furthermore, the more sophisticated/complicated the data, the more likely that deep learning will perform better.  
+
+Reinforcement Learning would be helpful in the checkpointing as it will be able to decide whether or not it wants to add a checkpoint based on its environment and available states. Obviously, if the probability of an ecu failing in a particular environment is high, it would be a good idea to add a checkpoint. These are areas that reinforcement learning would be better able to handle rather than regular shallow/deep learning. 
 
 ### Learning
 When it comes to learning techniques, there are many options. MaLSAMi is going to look into Deep and Shallow Learning based data analysis and decision making.
