@@ -138,3 +138,13 @@ A simple and easy algorithm that should be the baseline performance in which the
 Decision Trees are beneficial for their ability to process and classify virtually any type of data. Random Forests are more advanced version of decision trees and usually perform very well. Both can be tested. However, the random forest is the more likely algorithm. 
 
 target: online scheduling on RT systems
+
+
+
+### Testing 
+
+For both approaches, we will use the standard metrics of testing for shallow and deep learning. This will include shuffling of training splits, cross validation, and in depth classification reports measuring the accuracy, precision, and recall to understand exactly what is happenign with the algorithms. 
+
+The optimal scenario would be to have enough data for the network to train completely on one set and only touch the test set once for everytime it is testing. However, given how much viable data that is available, this may not be what actually happens. 
+
+For the networks, it is very important that we do not fall prey 
