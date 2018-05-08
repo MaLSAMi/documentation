@@ -147,4 +147,4 @@ For both approaches, we will use the standard metrics of testing for shallow and
 
 The optimal scenario would be to have enough data for the network to train completely on one set and only touch the test set once for everytime it is testing. However, given how much viable data that is available, this may not be what actually happens. 
 
-For the networks, it is very important that we do not fall prey 
+For the networks, it is very important that we do not fall prey to overfitting the test data. Hopefully, with a lot of data from the distributor we can avoid this problem. 
