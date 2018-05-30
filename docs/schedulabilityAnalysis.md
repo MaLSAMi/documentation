@@ -1,6 +1,6 @@
 Schedulability Analysis 
 
-On real-time systems, taks will be run and processed on multiple different ECUs. These ECUs are all responsible for various distributed tasks that whose analysis is important for migration planning in the probable event of system failure. 
+On real-time systems, tasks will be executed and processed on multiple different ECUs. These ECUs are responsible for various distributed tasks whose analysis is important for migration planning in the probable event of system failure. 
 
 On multi-ecu systems, the ECUs hold information about the task such as the start/end time. In the event of an ECU failure, it must have a prevention/recovery method in which it can migrate unfinished tasks to other ECUs  that it has not been able to complete. The aim of the schedulability analysis is to 'learn' and 'analyze' from past events and previous scenarios for better damage control. 
 	
@@ -25,6 +25,6 @@ Furthremore, heavy computation and time used to fit a static datasets very likel
 
 Analogously, the online training is beneficial and detrimental for the opposite reasons. While online, we do not have as much time and resources as we do while offline. Especially in the situation that we are in now, we must process the data quickly. Therefore, we used the online training as more of a 'validation' stage in which we fine tune the models and hyperparameters. 
 
-The distributor is the module responsible for data generation that we will be used for the schedulability analysis. See the *distributor.md* file for more information about the distributor. 
+The distributor is the module responsible for data generation that we will be used for the schedulability analysis. See the *[distributor file](distributor.md)* for more information about the distributor. 
 
-To further analyze the methods we are using, view *[Machine Learning](machine_learning.md)*. 
+To further analyze the methods we are using, view *[Machine Learning](machine_learning.md)* and the *[requirement analysis](reqAnalysis.md)*
