@@ -1,19 +1,20 @@
 # Distributor 
 
-Distributor is the main class/entity that controls and distributes host sessions to manage tasksets. Upon startup, the distributor will have a preset value of one host session that it will be able to spawn. The user is permitted to change this number at any time up to a hardcoded limit of seven. Machines set to be closed will finish their assigned taskset before being shut down. The distributor is mainly used for gathering large-scale data about autonomous system schedulability-tasks, which can be used for data mining and analysis. 
+Distributor is the main class/entity that controls and distributes host sessions to manage tasksets. Upon startup, the distributor will have a preset value of one host session that it will be able to spawn. The user is permitted to change this number at any time up to a hardcoded limit of forty one. Machines set to be closed will finish their assigned taskset before being shut down. The distributor is mainly used for gathering large-scale data about autonomous system schedulability-tasks, which can be used for data mining and analysis. 
 
 
 
 ## Set up and Configuration
 
-A **vagrant** script is provided in the client-tools repository, which will set up the appropriate development environment and prepare it for use without any manual installation or configuration besides starting the dhcp service via
+Clone the client-tools repository and initialize the submodules and place a working [image.elf](https://argos-research.github.io/documentation/) file inside the client-tools directory.
 
-    sudo systemctl start isc-dhcp-server
+### With Vagrant
 
-However, if you would like to configure your host machine **manually**, follow the steps below:
+A **vagrant** script is provided in the client-tools repository, which will set up the appropriate development environment and prepare it for use without any manual installation or configuration.
 
-Clone the client-tools repository and initialize the submodules and place a working image.elf file inside the client-tools directory.
+(Executing the distributor inside a vagrant machine leads to an unknown error, which stops the execution at some point after about ten to thirty hours. As the vagrant machine serves only as a test and development environment, this is not a critical issue and will not be further investigated, as mentioned in the according [issue](https://github.com/malsami/distributor_service/issues/9))
 
+### Manual Setup
 
 Install Python 3.5 and pip3
 
@@ -35,7 +36,7 @@ Install bridge functionality for networking:
 Download DHCP service and move provided configuration file. 
 
 
-    sudo apt-get install nmap isc-dhcp-server -qq
+    sudo apt-get install isc-dhcp-server -qq
     sudo cp dhcpd.conf /etc/dhcp/
     
 Set up the bridge and assign an IP address (consult the dhcp.conf file for more information on IP ranges)
@@ -61,16 +62,23 @@ Start the dhcp service
 
     sudo systemctl start isc-dhcp-server
 
-The machine should now be ready for use. Let's start the distributor now. 
 
-Open up the interactive python shell in the directory of the distributor_service (You can also create and execute this in a script)
+The machine should now be ready for use. 
+
+## Using the Distributor
+
+The following is an example execution to provide better understanding.
+
+**Open up the interactive python shell** in the directory 'distributor_service' by typing (You can also create and execute this in a script)
 
 
     sudo python3
 
 
 
-Add appropriate imports ('example.py' holds some tasksets for testing. Also 'loggingMonitor.py' is a monitor for testing, which writes to distributor_service/logs/monitor.log You are welcome to use your own classes.)
+**Add appropriate imports:** 
+
+('example.py' holds some tasksets for testing, 'loggingMonitor.py' is a [Monitor](monitor.md) for testing, which writes to logs/monitor.log)
 
 
 
@@ -79,9 +87,10 @@ Add appropriate imports ('example.py' holds some tasksets for testing. Also 'log
     from distributor import Distributor
 
 
+Defining a monitor and tasksets for the execution is left to the user.
 
 
-Initialize modules
+**Initialize modules:**
 
 
 
@@ -92,41 +101,33 @@ Initialize modules
 
 Now the distributor is running.
 
-Adding a job is possible via the add_jobs() function: 
+**Adding a job** is possible via the add_jobs(taskset, monitor) function: 
 
    
 
     dist.add_job(t,lm)
 
 
-This will trigger another function in which machines will be spawned acording to the set max_machine value.
+This will spawn machines acording to the current max_machine value.
 
 
-Note: You can repeat the above command to queue multiple jobs whenever you please. 
+Note: You can repeat the above command to queue multiple jobs whenever you please.
+
 
 To view a list of detached qemu instances 
 
-    sudo screen -list
+    sudo screen -ls
 
-To reatach to for example the screen with the name 'qemu1'
-
-    sudo screen -xr qemu1
+To kill a detached screen type:
 
 
+    sudo screen -X -S <name\_of\_screen> kill
 
 
-In a separate shell, you can trace the execution of the distributor by tailing the log file
+The log files of the genode instances are also saved in the log/ directory.
 
 
-
-
-    tail -f log/distributor.log
-
-
-
-
-
-7.Additionally, you can adjust the number of spawned qemu instances, max number of host machines, also while the distributor is running. See the distributor functions for more information. 
+Additionally, you can adjust the number of spawned machines, also while the distributor is running. See the distributor functions for more information. 
 
 
 
@@ -136,7 +137,7 @@ In a separate shell, you can trace the execution of the distributor by tailing t
 
 ## Distributor functions
 
-Setting max machines to a value between 1 and 7. You can change this anytime as this only affects the maximum total number of spawned machines. If machines are active, the number will be adapted accordingly. Closing machines will still finish their current taskset before shutting down.
+Setting max machines to a value between 1 and 42. You can change this anytime as this only affects the maximum total number of spawned machines. If machines are active, the number will be adapted accordingly. Closing machines will still finish their current taskset before shutting down.
 
 
         set_max_machine_value(numMachines)
@@ -144,7 +145,7 @@ Setting max machines to a value between 1 and 7. You can change this anytime as 
 
 
 
-Function to check if the distributor is working or not. 
+Function to check if the distributor is busy or not. 
 
         get_distributor_state()
 
@@ -163,7 +164,9 @@ The function is instantiating a new object of type TaskSetQueue which is then ap
 
         add_job(taskset, monitor, *session_parameters)
 
-A job always consists of Taskset t and a Monitor, the session\_parameters are optional. TaskSetQueue will hold the iterator which is returned by t.variants()
+
+A job always consists of Taskset t and a Monitor, the session\_parameters are optional. Inside the method a TaskSetQueue will hold the iterator which is returned by t.variants()
+
 
 Kill all machines that are currently running 
 
@@ -178,16 +181,3 @@ The 'machine.py' implements a class which extends threading.Thread.
 
 An instance of Machine is taking care of spawning a host, creating a session which connects to the spawned host and acquiring tasksets while there still is work to be done.
 
-## The Monitor component
-
-The provided monitor 'mon' has to implement the AbstractMonitor as defined in distributor\_service/monitor.py
-
-Everytime after a taskset finished execution
-
-    mon.__taskset_finish__(self, finished_taskset)
-
-is called. This is the function which should write data into a database of some kind.
-
-    mon.__taskset_stop__(self, running_taskset)
-
-is called if a taskset was not finished but the machine could not finish the current set. This method should clear the jobs attribute of every task in the set.  
