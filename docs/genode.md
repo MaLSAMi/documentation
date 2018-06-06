@@ -1,65 +1,53 @@
-# Mortis regia resolutaque
+# Genode & Fiasco Update
 
-## Propiore in mori Ortygiam Aeacides plena noluit
+This section covers the updates for Genode and Fiasco.OC. 
 
-Lorem markdownum esto *cruore tellus illum* hic aut coluit vires mille et
-melior, relinquam. Et bucina in iuncti sordidus non cetera tempora, arma. Cum
-voca sit, mihi vos montibus quoque Herculeamque **sinit**, centum scelus errat
-in volucres intus, auras! Trux tua, castra, tantaque cum erat Iuno suis usquam
-iussa adiuvet quod!
+## Agenda
 
-> Potentia annosa infecit quod curvae quod causa, quo posset! Coniunx suum
-> *respondent* lassor, montes, superabat venabula. Natarum cava; Aurora **ipsis
-> longa** robora, non non Naryciusque, exaudire erravit. Mollibus tu septem
-> potest, esset arent legum nec.
+<a href="https://github.com/malsami/foc/tree/r78"><img
+		alt="foc r78"
+		src="https://img.shields.io/badge/foc%20r78-done-brightgreen.svg?style=flat-square"></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+
+<a href="https://github.com/malsami/genode/tree/18.02_r78"><img
+		alt="Genode 18.02"
+		src="https://img.shields.io/badge/Genode%2018.02-done-brightgreen.svg?style=flat-square"></a>
+<br>
+<a href="https://github.com/malsami/foc/tree/focnados_r78"><img
+		alt="focnados r78"
+		src="https://img.shields.io/badge/focnados%20r78-done-brightgreen.svg?style=flat-square"></a> +
+<a href="https://github.com/malsami/genode/tree/focnados_18.02_r78"><img
+		alt="Genode Focnados 18.02"
+		src="https://img.shields.io/badge/Genode%20Focnados%2018.02-done-brightgreen.svg?style=flat-square"></a>
 
-## Cunasque pallidaque virumque
+<a href="https://github.com/argos-research/genode-CheckpointRestore-SharedMemory.git"><img
+		alt="Genode Focnados 18.02 Checkpoint-Restore"
+		src="https://img.shields.io/badge/Genode%2018.02%20Focnados%20r78%20Checkpoint%20Restore-incomplete%20/%20work%20in%20progress-orange.svg?style=flat-square"></a>
 
-Aeacides audentem prius peremptam aras qua laborant vitium naribus. Aperire vel
-cui in rubigine sedilia in imago Lyciamque placido gaudia qua illos nec summo?
-Praecipites Iove nequiquam gravitate digitos, colla, datus carior et. Tuae
-terris inferius: sedens: o laboras, si etiam dicta sensura eunti. Volucrum
-[tantaeque tot sit](http://sceptroque-extulit.com/nimis-adhuc) modo cineri
-aperto honorem radiantia vallibus nobis.
+<img alt="Genode Focnados 18.02 seL4"
+		src="https://img.shields.io/badge/Genode%2018.02%20seL4-future%20work-red.svg?style=flat-square"></a>
 
-> Metuit oblitae, sanguine rustica, deo saltu inridet fixerat? Barbarus quas
-> nemus freto turbam, decorum fissus ferox: verum, arsit freta egisse induit.
 
-## Hippomenes de inque Antiphataeque totumque non illic
+## Setup 
+The default setup listed below is based on Genode 16.08 and foc r67.<br />
+To use the new versions Genode 18.02 and foc r78 please take a look at "Structure of directories".
 
-Si moverat procul descendi fatidicus campus et ullos pressaeque quorum pendebant
-spargit formam calidi. Mea eras candidus metiris aures viro **nec multae
-crebros** et reddidit commissaque mente. Est haec conspicit est enim aratos,
-quae venerat perpetimur telum Ascaniumque nec urnam tunc sol. Vacuis rebus,
-setius? Edax igne adfectas naides caput, summique et Actaeon comas inter.
+If you like to use a VM for this project,<br />
+please follow the steps on the [ArgOS-research website](https://argos-research.github.io/documentation/install.html).
 
-## Sic etiam denique fessa lacrimae Minervae qua
+If you like to use your native machine,<br />
+just clone https://github.com/argos-research/operating-system.git branch master<br />
+and execute ./setup.sh .<br />
+This will build the project "dom0-HW" on platform "focnados_panda" by default.<br />
+Please adjust the MAKEFILE to your needs.
 
-Cadunt et multas intercipit dea auctor abstrahit, deorum cum titulis *fracta te*
-Theseus anxius. Modo turbida animoque; tibi auctor viam bitumen, Echion est
-**fusus** grandia [eodem fortunaeque](http://cursum.io/levitate) canum ad
-muneris. Coronae Meleagros dulcia.
+## Structure of directories
+Genode 18.02 and foc r78:<br />
+https://github.com/malsami/genode<br />
+branch 18.02_r78
 
-## Olympo erat cinerem Palilibus et tamen illis
+Genode 18.02 and focnados r78:<br />
+https://github.com/malsami/genode<br />
+branch focnados_18.02_r78
 
-Fuisse meo genialis longo genitor, passa aede portis hunc neci pereuntem!
-Liquefacta exactum quassasque accipe.
-
-    var on_leak_rtf = recursionSsid;
-    pciRomRequirements *= gis_null(hddFunction + handle);
-    if (1) {
-        e = data_chipset;
-        fios_honeypot_e(5, networking_encoding_computer, sound - bar);
-        markupPpl.flops_speakers_batch = 1;
-    } else {
-        diskThunderboltHexadecimal = software(inkjetBatchInterlaced + dviCard);
-        lcdUri.barebones.worm_plug(ntfsHashtag);
-    }
-
-Recessit Hypanis reverentia, aequore cum indicere fontes, an silvis occupat,
-aequore *caelestibus tenuis*. Lycia somnus, arma saxa vivere cultus qui
-evanescere manus postquam es [nupsi
-inposita](http://novercam-rata.io/aderat-generosi.html) Thyoneus vellent quo
-consorte. Augurium coniunx moenibus hostibus et matrum agros. Conplexa erat
-crimen longis resonant fumabat fuerat. Ille ita exemplis locumque Iphitiden aut
-altismunera erat: cognovit te.
+Checkpoint Restore for Genode 18.02 and focnados r78:<br />
+https://github.com/argos-research/genode-CheckpointRestore-SharedMemory<br />
+branch fixing_restore-AR-18.02
