@@ -74,7 +74,7 @@ Add appropriate imports ('example.py' holds some tasksets for testing. Also 'log
 
 
 
-    from example import Hey0TaskSet
+    from malsamiTest import example5
     from monitors.loggingMonitor import LoggingMonitor
     from distributor import Distributor
 
@@ -85,7 +85,7 @@ Initialize modules
 
 
 
-    t = Hey0TaskSet()
+    t = example5()
     lm = LoggingMonitor()
     dist = Distributor()
 
