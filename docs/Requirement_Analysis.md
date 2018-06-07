@@ -1,31 +1,27 @@
 # Requirements Analysis for MaLSAMi (Machine Learning based Schedulability Analysis for inter device Migration of software based components during Runtime)
 
-## What we want to do
-on multi ecu system: 
-	- tasks are running on multiple electronic computing units (ECU).
-	- on each ECU checkpoints of the current state_/progress of the running tasks are created periodically
-	- at some point in time a ECU might fail, then, based on information about the running tasks, a decision for migration of the tasks on the failed ECU has to be made.
-	- for this decision some kind of schedulability analysis is necessary.
-	- after a decision is made, the checkpoint has to be restored on another ECU and all tasks should continue to run
+## Overview
+
+ Tasks are running on multiple electronic computing units (ECU). These ECUs periodically create checkpoints of the current state and progress of the running tasks. At some point in time, an ECU might fail. From the checkpoints and the information of the running tasks, the ECU must make a decision for migration of tasks on a failed ECU. This project hopes to utilize schedulability analysis to make better decisions on the migration of these components. After the ECU makes its decision, it must restore the checkpoint on another ECU and have that ECU execute the remaining tasks. 
+	
+
+The migration of a task by restoring a checkpoint to another ECU could happen either directly to another ECU or by collecting all the checkpoints of all the ECUs to a different machine and redistributing them to a chosen target ECU when necessary. Another variant of checkpointing would be to create an initial full checkpoint followed by smaller change-based incremental checkpoints. These incremental checkpoints might be integrated into the full checkpoint on the same ECU before sending it to another machine, or every checkpoint is sent right after creation. These smaller based checkpoints are motivated by the necessity of storing and retaining information in the event of an imminent failure. Furthermore, the data would prove to be useful for later analysis. 
+
+Another possible use-case for checkpoints, which is not being looked into is the restart of failed tasks at its last known state on the same machine.
+
+The decision of where a task is migrated to is generally based on the information about the task. It could also be a posibillity to include the information gained through the checkpoints to find the best solution.
+
+We have chosen to employ [machine learning](machine_learning.md) to improve our ability to make these decisions. There are three general phases in which learning would be best applied: 
 
 
-Creating checkpoints of running tasks could include the memory, the assigned capabilities or the registers.
-After an initial full checkpoint an incremental approach to saving changes is also a posibility.
-
-The migration of a task by restoring a checkpoint to another ECU could happen either directly to another ECU or by collecting all the checkpoints of all the ECUs to a different machine and redistributing them to a chosen target ECU when necessary.
-Another variant of checkpointing would be to create an initial full checkpoint followed by smaller change-based incremental checkpoints. These incremental checkpoints might be integrated into the full checkpoint on the same ECU before sending it to another machine, or every checkpoint is sent right after creation.
-A possible use-case for checkpoints, which is not being looked into is the restart of failed tasks at its last known state on the same machine.
-
-The decision where a task is migrated to is mainly based on the general information about the task but it could also be a posibillity to include the information gained through the checkpoints to find the best solution.
-Learning (of any kind) can be performed in three general categories: 
--offline on a different ECU or computer for exactly the purpose of analysing the data and performing the migration planning.
--online on very strong ECUs which are performing tasks and also the data analysis and decision making necessary for migration
--online on normal ECUs (embedded boards) which are performing tasks and also the data analysis and decision making necessary for migration
+* **Offline Learning** Heavyweight phase where there is a lot of data available and enough resources to extensively train the model. We can train on previously sampled data and can utilize our resources for complicated algorithms. This will be done on a different ECU or computer to analyze as much data  as possible and to perform migration planning.
+* **Online Learning** This type of online learning will be performed on very strong ECUs. Although these ECUs are strong, we do not have access to the entire dataset and all the resources as we are in the offline learning. Furthermore, we will be learning on data in real-time and will not be able to analyze both ends of the dataset. However, this aspect is necessary as it will simulate the migration planning in real time. These decisions will most likely have a greateer influence on the migration planning. 
+* **online on normal ECUs (embedded boards)** This is similiar to the online learning phase described before. The only difference is that the ECU will not be as powerful and may require even lighter weight algorithms. 
 
 
 ## What we have
 
-### Hardware
+### Hardware Available
 
 3 Workstations:
 -	titan V
