@@ -1,15 +1,14 @@
 Schedulability Analysis 
 
-On real-time systems, tasks will be executed and processed on multiple different ECUs. These ECUs are responsible for various distributed tasks whose analysis is important for migration planning in the probable event of system failure. 
+On real-time systems, tasks will be executed and processed on multiple different ECUs. These ECUs are responsible for various distributed tasks whose analysis is important for migration planning in the probable event of system failure. Schedulabilit analysis is one of the studies that aims to determine information about how these ECUs are planning tasks. With this information, the behaviors can be modified. 
 
-On multi-ecu systems, the ECUs hold information about the task such as the start/end time. In the event of an ECU failure, it must have a prevention/recovery method in which it can migrate unfinished tasks to other ECUs  that it has not been able to complete. The aim of the schedulability analysis is to 'learn' and 'analyze' from past events and previous scenarios for better damage control. 
+On these multi-ecu systems, the ECUs hold information about the task such as the start/end time. In the event of an ECU failure, it must have a prevention/recovery method in which it can migrate unfinished tasks to other ECUs  that it has not been able to complete. Our goal with schedulability analysis is to garner all the information from past, present, and future events for better damage control and migration planning.
 	
-Creating checkpoints of running tasks could include the memory, the assigned capabilities or the registers.
-After an initial full checkpoint an incremental approach to saving changes is also a posibility.
+Checkpoints are also an important aspect of schedulability analysis. Generally, checkpointing include storing the current state of the machine and/or the task state for postponed execution. These checkpoints could include the memory, the assigned capabilities or the registers. Beside full checkpoints, incremental minor checkpointing could be useful as well. This would include small backups to ensure that no data is lost as a failure of a system can happen at an inconveninet time. 
 
-The migration of a task by restoring a checkpoint to another ECU could happen either directly to another ECU or by collecting all the checkpoints of all the ECUs to a different machine and redistributing them to a chosen target ECU when necessary.
-Another variant of checkpointing would be to create an initial full checkpoint followed by smaller change-based incremental checkpoints. These incremental checkpoints might be integrated into the full checkpoint on the same ECU before sending it to another machine, or every checkpoint is sent right after creation.
-A possible use-case for checkpoints, which is not being looked into is the restart of failed tasks at its last known state on the same machine.
+The migration of a task by restoring a checkpoint to another ECU could happen either directly to another ECU or by collecting all the checkpoints of all the ECUs to a different machine and redistributing them to a chosen target ECU when necessary.Another variant of checkpointing would be to create an initial full checkpoint followed by smaller change-based incremental checkpoints. These incremental checkpoints might be integrated into the full checkpoint on the same ECU before sending it to another machine, or every checkpoint is sent right after creation.
+
+A possible use-case for checkpoints, which is not being looked into is the restart of failed tasks at its last known state on the same machine. 
 
 The decision where a task is migrated to is mainly based on the general information about the task but it could also be a posibillity to include the information gained through the checkpoints to find the best solution.
 

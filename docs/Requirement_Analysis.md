@@ -41,31 +41,26 @@ Which data can be aquired from the distributor is dependent on the defined monit
 
 ### Available Software
 
-Python 3.5.2
-Pytorch va
-Cuda v
-Qemu 
-Genode
-cxxnet
-Theano
-Torch7
+* Python 3.5.2
+* Pytorch va
+* Cuda v
+* Qemu 
+* Genode
+* cxxnet
+* Theano
+* Torch7
 
-##What we can do
+## What we can do
 
 Multiple frameworks for deep learning and parallel programming. 
 
-Pytorch allows easy high level implementation of deep neural networks along with GPU accelerated computation. This will be especially useful in speeding pu computation of deep neural networks. These GPUs will allow the networks to train on more data in less time. This feature will be especially useful when during the offline training phase, as this is where the GPUs are available.  
+Pytorch allows easy high level implementation of deep neural networks along with GPU accelerated computation. This will be especially useful in accelerating computation of deep neural networks. These GPUs will allow the networks to train on more data in less time. This feature will be especially useful when during the offline training phase where we can train deep and expansive nueral networks with full use of resources.   
 
-There are numerous other frameworks that can be used as well. It is difficult to say which is optimal and usually they all are highly capable. Pytorch is good because of its ease in utilizing GPU architecture with neural networks. However, there are numerous other libraries that are specialized to the type of network or learning technique we are using. Cuda-convnet is another project that utilizes C++ Cuda implementatoin of neural networks. If we observe that the neural networks are performing well and we want to optimize, we can then pursue these libraries. 
+There are numerous other frameworks that can also be utilized. Pytorch is good because of its ease in utilizing GPU architecture with neural networks. However, there are numerous other libraries that are specialized to the type of network or learning technique we are using. Cuda-convnet is another project that utilizes C++ Cuda implementatoin of neural networks. If we observe that the neural networks are performing well and we want to optimize, we can then pursue these libraries. 
 
-Shallow Learning techniques are much simpler than Deep Learning techniques and do not always require very sophisticated libraries. Furthermore, whether or not the learning phase can or should be parallelized can be decided later. 
+Shallow Learning techniques are much simpler than Deep Learning techniques and do not always require very sophisticated libraries or hardware. Furthermore, whether or not the learning phase can or should be parallelized can be decided later. Given the resources, we have for the offline training phase, we will attempt to parallelize and optimize the algorithms wherever possible. 
 
-Given the resources, we have for the offline training phase, we will attempt to parallelize and optimize the algorithms wherever possible. 
-
-After these rudimentary shallow and deep learning techniques are applied. We can look into reinforcement learning, a newer machine learning approach that is especially used for autonomous driving. The main difference between reinforcement learning and regular supervised/unsupervised machine learning is how an agent decides which actions to take based on the environment. We are currently mostly concerned with schedulablitity analysis, which will be learned based on the data itself. However, further analysis of the acquired data and the patterns analyzed may bring some interest into this type of approach. 
-
-
-The ECUs allow us to use multiple forms of information which will be helpful for machine learning training such as lidar, radars, etc. 
+After these rudimentary shallow and deep learning techniques are applied. We can look into reinforcement learning, a newer machine learning approach that is especially used for autonomous driving. The main difference between reinforcement learning and regular supervised/unsupervised machine learning is how an agent decides which actions to take based on the environment. We are currently mostly concerned with schedulablitity analysis, which will be learned based on the data itself. However, further analysis of the acquired data and the patterns analyzed may bring some interest into this type of approach. Other preprocessing and/or unsupervised learning techniques can be implemented to enhance the analysis. This will all depend on the data and the patterns that emerge when it is sampled. The ECUs allow us to use multiple forms of information which will be helpful for machine learning training such as lidar, radars, etc. 
 
 ### Checkpointing
 
@@ -82,11 +77,11 @@ When it comes to learning techniques, there are many options. MaLSAMi is going t
 
 Deep Learning works best when there is a lot of data to sample from. These algorithms will be mostly utilized in the 'offline' phase of the learning. Deep Learning has a variety of different neural network models such as Generative Adversarial Networks (GAN), Spiking Neural Networks (SNN), Feed Forward Networks (FNN), Recurrent Neural Networks (RNN) and Convolutional  CNN.  These networks are specializied for specific types of data mining and analysis and are never a 'one fits all' model. Therefore, we plan to analyze several of these different models. Each of the networks listed below are catered to a certain kind of problem, but they are not too specialized to be unadaptable. 
 
+### [Shallow Learning](Shallow_Learning.md)
+
+Shallow Learning techniques are usually much simpler than deep learning. These require less time and energy to train and classify. However, as they are simpler, they do not have the same adaptibility of the neural networks. However, certain algorithms (Support Vector Machines and Random Forest) have proven to be quite effective in binary classifiaction. The aim of the shallow learning is to do an expansive test of different algorithms and understand what their fitting on the data indicates. High accuracy on certain algorithms will indicate different trends in the data. Regardless of whether or not shallow learning is used, these algorithms will bring more insight into the modelling of the data. 
+
 
 ### Testing 
 
-For both approaches, we will use the standard metrics of testing for shallow and deep learning. This will include shuffling of training splits, cross validation, and in depth classification reports measuring the accuracy, precision, and recall to understand exactly what is happenign with the algorithms. 
-
-The optimal scenario would be to have enough data for the network to train completely on one set and only touch the test set once for everytime it is testing. However, given how much viable data that is available, this may not be what actually happens. 
-
-For the networks, it is very important that we do not fall prey to overfitting the test data. Hopefully, with a lot of data from the distributor we can avoid this problem. 
+For both approaches, we will use the standard metrics of testing for shallow and deep learning. This will include shuffling of training splits, cross validation, and in depth classification reports measuring the accuracy, precision, and recall. The challenges with data mining is dealing with improper and unclean data. Optimally, we would have enough data for extensive testing. Hopefully, the distributor will be able to generate enough worthwhile data to train on. 
