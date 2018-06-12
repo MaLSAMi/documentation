@@ -1,65 +1,183 @@
-# Mortis regia resolutaque
+# Distributor 
 
-## Propiore in mori Ortygiam Aeacides plena noluit
+Distributor is the main class/entity that controls and distributes host sessions to manage tasksets. Upon startup, the distributor will have a preset value of one host session that it will be able to spawn. The user is permitted to change this number at any time up to a hardcoded limit of forty one. Machines set to be closed will finish their assigned taskset before being shut down. The distributor is mainly used for gathering large-scale data about autonomous system schedulability-tasks, which can be used for data mining and analysis. 
 
-Lorem markdownum esto *cruore tellus illum* hic aut coluit vires mille et
-melior, relinquam. Et bucina in iuncti sordidus non cetera tempora, arma. Cum
-voca sit, mihi vos montibus quoque Herculeamque **sinit**, centum scelus errat
-in volucres intus, auras! Trux tua, castra, tantaque cum erat Iuno suis usquam
-iussa adiuvet quod!
 
-> Potentia annosa infecit quod curvae quod causa, quo posset! Coniunx suum
-> *respondent* lassor, montes, superabat venabula. Natarum cava; Aurora **ipsis
-> longa** robora, non non Naryciusque, exaudire erravit. Mollibus tu septem
-> potest, esset arent legum nec.
 
-## Cunasque pallidaque virumque
+## Set up and Configuration
 
-Aeacides audentem prius peremptam aras qua laborant vitium naribus. Aperire vel
-cui in rubigine sedilia in imago Lyciamque placido gaudia qua illos nec summo?
-Praecipites Iove nequiquam gravitate digitos, colla, datus carior et. Tuae
-terris inferius: sedens: o laboras, si etiam dicta sensura eunti. Volucrum
-[tantaeque tot sit](http://sceptroque-extulit.com/nimis-adhuc) modo cineri
-aperto honorem radiantia vallibus nobis.
+Clone the client-tools repository and initialize the submodules and place a working [image.elf](https://argos-research.github.io/documentation/) file inside the client-tools directory.
 
-> Metuit oblitae, sanguine rustica, deo saltu inridet fixerat? Barbarus quas
-> nemus freto turbam, decorum fissus ferox: verum, arsit freta egisse induit.
+### With Vagrant
 
-## Hippomenes de inque Antiphataeque totumque non illic
+A **vagrant** script is provided in the client-tools repository, which will set up the appropriate development environment and prepare it for use without any manual installation or configuration.
 
-Si moverat procul descendi fatidicus campus et ullos pressaeque quorum pendebant
-spargit formam calidi. Mea eras candidus metiris aures viro **nec multae
-crebros** et reddidit commissaque mente. Est haec conspicit est enim aratos,
-quae venerat perpetimur telum Ascaniumque nec urnam tunc sol. Vacuis rebus,
-setius? Edax igne adfectas naides caput, summique et Actaeon comas inter.
+(Executing the distributor inside a vagrant machine leads to an unknown error, which stops the execution at some point after about ten to thirty hours. As the vagrant machine serves only as a test and development environment, this is not a critical issue and will not be further investigated, as mentioned in the according [issue](https://github.com/malsami/distributor_service/issues/9))
 
-## Sic etiam denique fessa lacrimae Minervae qua
+### Manual Setup
 
-Cadunt et multas intercipit dea auctor abstrahit, deorum cum titulis *fracta te*
-Theseus anxius. Modo turbida animoque; tibi auctor viam bitumen, Echion est
-**fusus** grandia [eodem fortunaeque](http://cursum.io/levitate) canum ad
-muneris. Coronae Meleagros dulcia.
+Install Python 3.5 and pip3
 
-## Olympo erat cinerem Palilibus et tamen illis
 
-Fuisse meo genialis longo genitor, passa aede portis hunc neci pereuntem!
-Liquefacta exactum quassasque accipe.
+    sudo apt-get install python3.5 -qq
+    sudo apt-get  install python3-pip -qq
 
-    var on_leak_rtf = recursionSsid;
-    pciRomRequirements *= gis_null(hddFunction + handle);
-    if (1) {
-        e = data_chipset;
-        fios_honeypot_e(5, networking_encoding_computer, sound - bar);
-        markupPpl.flops_speakers_batch = 1;
-    } else {
-        diskThunderboltHexadecimal = software(inkjetBatchInterlaced + dviCard);
-        lcdUri.barebones.worm_plug(ntfsHashtag);
-    }
+Install the requirements for the taskgen module
 
-Recessit Hypanis reverentia, aequore cum indicere fontes, an silvis occupat,
-aequore *caelestibus tenuis*. Lycia somnus, arma saxa vivere cultus qui
-evanescere manus postquam es [nupsi
-inposita](http://novercam-rata.io/aderat-generosi.html) Thyoneus vellent quo
-consorte. Augurium coniunx moenibus hostibus et matrum agros. Conplexa erat
-crimen longis resonant fumabat fuerat. Ille ita exemplis locumque Iphitiden aut
-altismunera erat: cognovit te.
+    sudo pip3 install -r client-tools/taskgen/requirements.txt
+
+
+Install bridge functionality for networking:
+
+
+    sudo apt-get install bridge-utils -qq
+
+
+Download DHCP service and move provided configuration file. 
+
+
+    sudo apt-get install isc-dhcp-server -qq
+    sudo cp dhcpd.conf /etc/dhcp/
+    
+Set up the bridge and assign an IP address (consult the dhcp.conf file for more information on IP ranges)
+
+
+    sudo brctl addbr br0
+    sudo ip addr add 10.200.40.1/21 dev br0
+
+
+Adjust /etc/network/interfaces file with preliminary networking information
+
+
+    sudo sh -c 'echo "auto br0\niface br0 inet dhcp\nbridge_ports eth0\nbridge_stp off\nbridge_maxwait 0\nbridge_fd 0\n" >> /etc/network/interfaces'
+
+
+Install qemu and screen for spawning host sessions from the distributor and for easy visualization of spawned sessions. 
+
+
+    sudo apt-get install qemu -qq
+    sudo apt-get install screen -qq
+
+Start the dhcp service
+
+    sudo systemctl start isc-dhcp-server
+
+
+The machine should now be ready for use. 
+
+## Using the Distributor
+
+The following is an example execution to provide better understanding.
+
+**Open up the interactive python shell** in the directory 'distributor_service' by typing (You can also create and execute this in a script)
+
+
+    sudo python3
+
+
+
+**Add appropriate imports:** 
+
+('example.py' holds some tasksets for testing, 'loggingMonitor.py' is a [Monitor](monitor.md) for testing, which writes to logs/monitor.log)
+
+
+
+    from malsamiTest import example5
+    from monitors.loggingMonitor import LoggingMonitor
+    from distributor import Distributor
+
+
+Defining a monitor and tasksets for the execution is left to the user.
+
+
+**Initialize modules:**
+
+
+
+    t = example5()
+    lm = LoggingMonitor()
+    dist = Distributor()
+
+
+Now the distributor is running.
+
+**Adding a job** is possible via the add_jobs(taskset, monitor) function: 
+
+   
+
+    dist.add_job(t,lm)
+
+
+This will spawn machines acording to the current max_machine value.
+
+
+Note: You can repeat the above command to queue multiple jobs whenever you please.
+
+
+To view a list of detached qemu instances 
+
+    sudo screen -ls
+
+To kill a detached screen type:
+
+
+    sudo screen -X -S <name\_of\_screen> kill
+
+
+The log files of the genode instances are also saved in the log/ directory.
+
+
+Additionally, you can adjust the number of spawned machines, also while the distributor is running. See the distributor functions for more information. 
+
+
+
+
+
+
+
+## Distributor functions
+
+Setting max machines to a value between 1 and 42. You can change this anytime as this only affects the maximum total number of spawned machines. If machines are active, the number will be adapted accordingly. Closing machines will still finish their current taskset before shutting down.
+
+
+        set_max_machine_value(numMachines)
+
+
+
+
+Function to check if the distributor is busy or not. 
+
+        get_distributor_state()
+
+
+
+Return current maximum value of possible active machines
+
+
+        get_max_machine_value()
+
+
+Creating a new job and adding it to a list of jobs to be worked on.
+The function is instantiating a new object of type TaskSetQueue which is then appended to the list of jobs to be processed.
+ 
+
+
+        add_job(taskset, monitor, *session_parameters)
+
+
+A job always consists of Taskset t and a Monitor, the session\_parameters are optional. Inside the method a TaskSetQueue will hold the iterator which is returned by t.variants()
+
+
+Kill all machines that are currently running 
+
+
+        kill_all_machines()
+
+
+
+## The Machine class
+
+The 'machine.py' implements a class which extends threading.Thread.
+
+An instance of Machine is taking care of spawning a host, creating a session which connects to the spawned host and acquiring tasksets while there still is work to be done.
+
