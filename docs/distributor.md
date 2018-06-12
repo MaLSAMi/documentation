@@ -82,7 +82,7 @@ The following is an example execution to provide better understanding.
 
 
 
-    from example import Hey0TaskSet
+    from malsamiTest import example5
     from monitors.loggingMonitor import LoggingMonitor
     from distributor import Distributor
 
@@ -94,7 +94,7 @@ Defining a monitor and tasksets for the execution is left to the user.
 
 
 
-    t = Hey0TaskSet()
+    t = example5()
     lm = LoggingMonitor()
     dist = Distributor()
 

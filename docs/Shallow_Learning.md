@@ -1,27 +1,20 @@
-#### Shallow Learning
+# Shallow Learning
 
-Shallow Learning represents the techniques that are not 'deep learning' or in the case of this project, those of which do not utilize a neural network or multi-layer perceptron. The algorithms that will be tested under the topic of 'shallow learning' are Support Vector Machines, k-Nearest Neibhbors (kNN), Logistic Regression, Gaussian Naive Bayes, and Decision Trees/Random Forests. These algorithms' performances should give insight into the types of data we are seeing. From this, we can decide on better ways to fit the data. 
+Shallow Learning represents the techniques that are not 'deep learning' or in the case of this project, those of which do not utilize a neural network or multi-layer perceptron. Although virtually any technique can be tested under the guise of 'shallow learning', we chose to focus on Support Vector Machines, k-Nearest Neibhbors (kNN), Logistic Regression, Gaussian Naive Bayes, and Decision Trees/Random Forests. While these algorithms each have their strenghts and weaknesses, their lightweight and easy implementation makes them easy to test and analyze. From the performance of these various algorithms, we can find import trends in the data. 
 
 
 ### Logistic Regression/Classification
 
-We simply took the original feed forward network and removed the hidden layer to fit it with the data. Like the neural networks, we initialized with random weights and then trained it extensively to find the correct weights. This falls under the same stochastic error problems as a neural network does. 
+Logistic Regression will determine attempt to model any relationship between the measured data and the label data. In the case of taskset data, logistic regression will attemp to model a relationship between the various tasksets. 
 
-The logistic regression approach is similiar to the Feed Forward Neural Network without the hidden layer. As the name suggests, we can use logistic regression simplly for predicting a continuous value. 
-
-## One vs. Rest
-
-A common classification problem. This is classifying a certain subset of the data as 'relevant' and the rest of the data as 'irrelevant'. 
-
-
-## One vs One (Characterizing certain as relevant and the others as irrelevant)
-
-Similiar to one vs one, however we are characterizing the irrelevant subset of data as being of one class while the 'relevant' subset is of another class. 
+If you are familiar with neural networks, logistic regression is simply a neural network without the hidden layer. It will give weights to the data point(s) based on the features.  
 
 
 ### Naive Bayes Algorithm
 
-Implement naive bayes algorithm
+Naive Bayes algorithm is 'naive' because it implicity assumes independence among all individual training examples. As we know with data systems, let alone taskset data, it is very unlikely that the data is independent. However, if we were to get a good performance with this classificaton algorithm, it would inidcate that the data is uncorrelated. 
+
+Although more sophisticated algorithms exist, naive bayes is very good for efficient computation. Because of its assumption of independence, the order of the input or the arrangement of the data does not affect the overall training experience. This is especially important in online-learning when all the data is not immediately available to us. 
 
 
 ### Support Vector Machines
@@ -32,56 +25,20 @@ In general, the Support Vector Machines with the Gaussian kernels perform optima
 
 ### K-Nearest Neighbors
 
-Very simple approach that is good for determining locality of data. Could be useful for clustering and dimension reduction. This method does not scale well with extra features/dimensions and so is not a viable choice. However, it is a fairly easy algorithm as it barely takes any training time. However, depending on the value of 'K', the classification for new tasks could take some time. 
+The K-Nearest Neighbors is one of the simples algorithm that uses rudimentary techniques to classify data. It is a flexible approach and can be useful for determining locality information. This information could further be used for unsupervised learning techniques such as clustering and dimension reduction. Unfortunately, this method does not scale well with multi-feature data similiar to the data that we currently have. However, this algorithm is fairly simple to implement and test. It will serve as a meaningful control algorithm (one in which we compare our fancier algorithms to). 
 
 ### Random Forests/Decision Trees 
 
-Random Forests are cool. Its main benefit is the ease of use and the quick classification. Furthemore, it does not require as much of a preprocessing as other algorithms as it can deal with virtually any kind of data. This is a viable candidate for the online learning as it will be useful in performing quick classification with likely high accuracy. 
+Decision Trees are great for handling categorical information without having to do much preprocessing. After the training phase, it is able to classify data quickly. This will be especially useful in the online learning phase. The main issue with decision trees is its likelihood of overfitting. This is where random forests come in to the picture.  
 
-The random forest is good to prevent overfitting from a decision tree. 
-
-
-It is unlikely that the decision tree would perform better that the random forest. For completeness, we will first the data with the decision tree and use the results to better build the random forest to better fit the model. 
-
-These random forests have numerous different applications and could very well fit this data will. 
+Random Forests are a very powerful algorithm and handle the low variance issues of decision trees. Although they are a little more difficult to implement/tune, they are expected to be one of the more useful algorithms. Much like decision trees, they can classify test data very quickly.   
 
 
+### Suppor Vector Machines (svm)
 
 
+Suppor Vector machines are effective classifiers for any kind of classification task. A linear support vector machine  may not separate the data as well as a non-linear svm. However, for completeness, we will train several different models on the data to obtain the best fit. Although this is an exhaustive process, support vector machines are relatively lightweight and very highly regarded for binary classification tasks. Additionally, the preproccesing step to divide the classes into respective classification assignments is also important and will assist in more accuracte predictions. 
 
 
-
-
-
-
-
-
-
-
-
-
-
-### Suppor Vector Machines
-
-Suppor Vector machines are effective classifiers for any kind of classification task. A linear support vector machine is unlikely to linearly separate the data and so a polynomial is the first hypothesized choice. However, for completeness, we will train several different models on the data to obtain the best fit. Although this is an exhaustive process, support vector machines are relatively lightweight and very high regarded for classification tasks. Additionally, the preproccesing step to divide the classes into respective classification assignments is also important and will assist in more accuracte predictions. 
-
-### K-Nearest Neighbor 
-
-This is a simple clustering technique. An unlikely optimal fitting algorithm, but must be tested for completeness and comparison. The benefit of this approach is its ability to handle noisy and large amounts of data in a relatively simple way. Noisy and faulty data is very likely to happen in this case with all the data that will be gathered by the distributor. However, data with multiple features will not be well represented by this algorithm as it fails to scale in multiple dimensions. The accuracy (or non-accuracy) of this algorithm will give insight into the number of features and the natural grouping of the data. This can asssist in the other more specialized neural networks (most notably the convolutional neural networks). 
-
-
-### Logistic Regression
-
-This approach is good at formulizing a pattern based on the previous data analyzed. The issues are its likeliness to overfit while trying to learn more complicated data. However, when there is not much noise in the data, this algorithm is likely to perform very well as it can easily establish a relationship which explains not only the learned data but also to predict newer data. This algorithm will be useful in understanding any kind of correlation or imminent structure in the data. Logistic Regression is easy to optimize because of its convex objective function. 
-
-### Gaussian Naive Bayes 
-
-A simple and easy algorithm that should be the baseline performance in which the other algorithms are measured. A simple math formula which is easy to calculate and requires virtually no extra overhead. 
-
-### Decision Trees/Random Forest
-
-Decision Trees are beneficial for their ability to process and classify virtually any type of data. Random Forests are more advanced version of decision trees and usually perform very well. Both can be tested. However, the random forest is the more likely algorithm. 
-
-target: online scheduling on RT systems
 
 
