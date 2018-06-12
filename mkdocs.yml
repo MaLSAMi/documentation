@@ -1,2 +1,24 @@
 site_name: MaLSAMi Documentation 
 theme: readthedocs
+plugins:
+    - search
+
+markdown_extensions:
+        - smarty
+        - toc:
+              permalink: True
+        - sane_lists
+
+pages:
+    - Home : 'index.md'
+    - Analysis :
+        - 'Requirements Analysis' : 'analysis/requirements-analysis.md'
+        - 'Schedulability Analysis' : 'analysis/schedulability-analysis.md'
+    - 'Machine Learning' :
+        - 'Machine Learning' : 'machine-learning/machine-learning.md'
+        - 'Shallow learning': 'machine-learning/shallow-learning.md'
+        - 'Deep Learning': 'machine-learning/deep-learning.md'
+        - Networks :
+            - 'Feed Forward Network': 'machine-learning/nets/ffn.md'
+    - Genode : 'genode/genode.md'
+    - About : 'about.md'
