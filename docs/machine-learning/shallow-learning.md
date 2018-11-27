@@ -17,12 +17,6 @@ Naive Bayes algorithm is 'naive' because it implicity assumes independence among
 Although more sophisticated algorithms exist, naive bayes is very good for efficient computation. Because of its assumption of independence, the order of the input or the arrangement of the data does not affect the overall training experience. This is especially important in online-learning when all the data is not immediately available to us. 
 
 
-### Support Vector Machines
-
-We fitted a support vector machine with a polynomial kernel. For completeness, we added functionality for grid search (GridSearchCV) which fits the support vector machine with multiple different hyperparameters. (Note about the grid search, it is an exhaustive execution that will take a lot of time and energy. We recommend enabling GPU support, however it is unclear whether or not performance will ampify as much as it would for deep learning. Do not be surprised by long computation time. A quicker alternative would be to manually tune the hyperparameters with a training and validation set). 
-
-In general, the Support Vector Machines with the Gaussian kernels perform optimally. 
-
 ### K-Nearest Neighbors
 
 The K-Nearest Neighbors is one of the simples algorithm that uses rudimentary techniques to classify data. It is a flexible approach and can be useful for determining locality information. This information could further be used for unsupervised learning techniques such as clustering and dimension reduction. Unfortunately, this method does not scale well with multi-feature data similiar to the data that we currently have. However, this algorithm is fairly simple to implement and test. It will serve as a meaningful control algorithm (one in which we compare our fancier algorithms to). 
@@ -39,6 +33,8 @@ Random Forests are a very powerful algorithm and handle the low variance issues 
 
 Suppor Vector machines are effective classifiers for any kind of classification task. A linear support vector machine  may not separate the data as well as a non-linear svm. However, for completeness, we will train several different models on the data to obtain the best fit. Although this is an exhaustive process, support vector machines are relatively lightweight and very highly regarded for binary classification tasks. Additionally, the preproccesing step to divide the classes into respective classification assignments is also important and will assist in more accuracte predictions. 
 
+We fitted a support vector machine with a polynomial kernel. For completeness, we added functionality for grid search (GridSearchCV) which fits the support vector machine with multiple different hyperparameters. (Note about the grid search, it is an exhaustive execution that will take a lot of time and energy. We recommend enabling GPU support, however it is unclear whether or not performance will ampify as much as it would for deep learning. Do not be surprised by long computation time. A quicker alternative would be to manually tune the hyperparameters with a training and validation set). 
 
+In general, the Support Vector Machines with the Gaussian kernels perform optimally. 
 
 
