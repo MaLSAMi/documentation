@@ -1,4 +1,6 @@
-# The implementation responsible for forming the tasks and as a result the tasksets for deployment is in the datageneration repository in the MalSami project. The tasksets are incrementally created beginning with taksets of size one (each taskset consists of one task each) and then are continually created to build tasksets as big as size five (5 tasks per taskset). The progression works as follows:
+# Datageneration 
+
+The implementation responsible for forming the tasks and as a result the tasksets for deployment is in the datageneration repository in the MalSami project. The tasksets are incrementally created beginning with taksets of size one (each taskset consists of one task each) and then are continually created to build tasksets as big as size five (5 tasks per taskset). The progression works as follows:
 
 1. 'Good' and 'Bad' Tasks are gathered and separated. Each good/bad task is used to create a taskset of size 1 in which each taskset contains one task. As a result both good and bad Tasksets of size one are created. 
 
@@ -8,7 +10,7 @@
 
 4. Repeat for taskset of size n by combining taskset of size *n-1* with taskset of size 1.
 
-At the end, there should be a lot of tasksets as many are repeatedly combined with each other. 
+At the end, there should be a lot of tasksets as many are repeatedly combined with each other at each step. 
 
 
 
@@ -16,7 +18,7 @@ At the end, there should be a lot of tasksets as many are repeatedly combined wi
 
 
 
-## data_parser.py
+### data_parser.py
 
 The entire taskset data is stored in the log files for bookeeeping. For analysis, this file parses the log files in the chosen directory and stores into a databse. SQLite was used in this implementation but functionality for other mySQL databases should be possible as well. SQL is recommended because of the ease of querying and the connection between the databases. 
 
@@ -24,7 +26,9 @@ The database consists of these four Tables:
 
 
 1] Job
-2] Task 
+
+2] Task
+
 3] TaskSet
 
 
@@ -39,29 +43,33 @@ Here are some example queries to query the database for a dataset:
 
 Get TaskSets of size *1*: 
 
-'select TaskSet.Set_ID, Task.*, TaskSet.Successful 
+```sqlite3
+select TaskSet.Set_ID, Task.*, TaskSet.Successful 
  from Task 
- inner join TaskSet on Task.Task_ID = TaskSet.TASK1_ID '
+ inner join TaskSet on Task.Task_ID = TaskSet.TASK1_ID 
+``` 
 
  Get TaskSets of size *3*: 
 
- 'select TaskSet.Set_ID, t1.*, t2.*, t3.*, TaskSet.Successful '
+ ```sqlite3
+ select TaskSet.Set_ID, t1.*, t2.*, t3.*, TaskSet.Successful '
   from Task t1, Task t2, Task t3 
   inner join TaskSet on t1.Task_ID = TaskSet.TASK1_ID 
   and 
   t2.Task_ID = TaskSet.TASK2_ID 
   and 
   t3.Task_ID = TaskSet.TASK3_ID 
-  and TaskSet.TASK4_ID = -1 '
+  and TaskSet.TASK4_ID = -1 
+```
 
 
-  NOTE: These quereies were performed for a SQLite database. Other databases may have differences. 
+  **NOTE**: These quereies were performed for a SQLite database. Other databases may have differences.
 
-## make\_tasks.py
+### make\_tasks.py
 
 This calls a helper function in the *parameter\_config.py* to generate a file per task type defined in the *parameter\_config.taskTypes*. Each file consists of *parameter\_config.linesPerCall* lines and each line is a list of hash values with *parameter\_config.tasksPerLine* values.
 
-## main.py
+### main.py
 
 The *main.py* can be called without argument, but for each task in *parameter\_config.taskTypes* there has to exist a file (created by executing *make\_tasks.py*). *main.py* can also be called with the argument **c** to continue the execution with data loaded from the following files: *bad\_tasksets*, *good\_tasksets* and, if available, *possible\_tasksets*. These contain information gained by a previous execution of *main.py*.
 
