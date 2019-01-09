@@ -14,10 +14,11 @@ A monitor has to implement the _AbstractMonitor_ in the distributor\_service mod
 
 #### _\_\_taskset\_stop\_\_(taskset)_
    
-  This function is called when a new taskset has benn started by calling the _session.stop()_ function. If this function is called the monitor regards the taskset as completed and all information, which could be gained is available. 
+  This function is not used from within the distributor component as of now.
 
 #### _\_\_taskset_finish\_\_(self, taskset)_
 
+  This function is called when a taskset has been finished and _session.stop()_ has been called. If this function is called the monitor regards the taskset as completed and all information, which could be gained is available. 
   
 
   In general the monitor functions always hold a reference to the taskset the function was called with, so it has access to all information saved in the obect defined by the [**task.py**](https://github.com/malsami/taskgen/blob/master/task.py).
