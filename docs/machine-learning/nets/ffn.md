@@ -9,14 +9,3 @@ The output dimension (H2 X 1) was a single neuron which outputs a '1' or '0' usi
 The user can determine how many hidden units he or she would like to use. He or she is also allowed to decide on the number of epochs and the learning rate. This gives the user a bit of flexibility in fitting the model to the task data. 
 
 Although ReLU functions are very popular with most Feed-Forward Neural Networks. ReLU functions are popular because of their handling of the vanishing gradient that often arises from other activation functions. The advantage of Leaky ReLU is that it preserves more of the data than a regular ReLU function. While the ReLU chooses the max(0,input), the leaky-ReLU will choose:
-
-$
-\begin{array}{cc}
-  \{ & 
-    \begin{array}{cc}
-      0 & x\leq 0 \\
-      \frac{100-x}{100} & 0\leq x\leq 100 \\
-      0 & 100\leq x
-    \end{array}
-\end{array}
-$

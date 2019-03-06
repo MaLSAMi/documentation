@@ -2,6 +2,15 @@
 
 Shallow Learning represents the techniques that are not 'deep learning' or in the case of this project, those of which do not utilize a neural network or multi-layer perceptron. Although virtually any technique can be tested under the guise of 'shallow learning', we chose to focus on Support Vector Machines, k-Nearest Neibhbors (kNN), Logistic Regression, Gaussian Naive Bayes, and Decision Trees/Random Forests. While these algorithms each have their strenghts and weaknesses, their lightweight and easy implementation makes them easy to test and analyze. From the performance of these various algorithms, we can find import trends in the data. 
 
+## Testing Setup
+
+The shallow learning models were taken from the Sci-kit learn python class. The current machine learning pipeline allows the user to develop his or her own shallow learning models if he or she does not wish to use those of sci-kit learn. This project uses Sci-kit learn as a beginning point. 
+
+Testing can be done by training on the data, cross-validation, adn grid search. 
+
+Given the extraordinary amount of time that grid search takes, a 'randomized' search was used instead. Both of these searches take a list of parameters specified by the user and cross checks them to obtain the best parameters. While a grid search will test every parameter value, the ranomized search searches only a small fraction of them. This is the default search that we used. The developer is welcome to revert to the exhaustive Grid search by toggling the parameter. However, the results presented below will show only the results done by a 'randomized' grid search and not an exhaustive one. 
+
+Also, the parameters chosen were completely arbitrary. A developer may get different results not only from different hyperparameter selection, but also from different grid search runs. The grid search is only used to give a basic idea of what is going on. 
 
 ### Logistic Regression/Classification
 
@@ -9,6 +18,13 @@ Logistic Regression will determine attempt to model any relationship between the
 
 If you are familiar with neural networks, logistic regression is simply a neural network without the hidden layer. It will give weights to the data point(s) based on the features.  
 
+**Randomized Grid Search Results on pandas data:**
+
+*Best Penalty Type*: **L1**
+
+*Best C (Regularization Strength)*: **1291.5496650148827**
+
+(Rest are default parameters)
 
 ### Naive Bayes Algorithm
 
@@ -21,12 +37,32 @@ Although more sophisticated algorithms exist, naive bayes is very good for effic
 
 The K-Nearest Neighbors is one of the simples algorithm that uses rudimentary techniques to classify data. It is a flexible approach and can be useful for determining locality information. This information could further be used for unsupervised learning techniques such as clustering and dimension reduction. Unfortunately, this method does not scale well with multi-feature data similiar to the data that we currently have. However, this algorithm is fairly simple to implement and test. It will serve as a meaningful control algorithm (one in which we compare our fancier algorithms to). 
 
+**Randomized Grid Search Results on pandas data:**
+
+*Best Number of K-Neighbors*: **5**
+
+(Rest are default parameters)
+
+
 ### Random Forests/Decision Trees 
 
 Decision Trees are great for handling categorical information without having to do much preprocessing. After the training phase, it is able to classify data quickly. This will be especially useful in the online learning phase. The main issue with decision trees is its likelihood of overfitting. This is where random forests come in to the picture.  
 
 Random Forests are a very powerful algorithm and handle the low variance issues of decision trees. Although they are a little more difficult to implement/tune, they are expected to be one of the more useful algorithms. Much like decision trees, they can classify test data very quickly.   
 
+**Randomized Grid Search Results on pandas data:**
+
+*Best Depth*: **70**
+
+*Best Max Features*: **auto**
+
+*Best min_samples_leaf*: **3**
+
+*Best min_samples_split*: **4**
+
+*Best n_estimators*: **1000**
+
+(Rest are default sci-kit learn parameters)
 
 ### Suppor Vector Machines (svm)
 
