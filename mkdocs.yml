@@ -24,4 +24,6 @@ pages:
     - Data Generation : 
         - 'Distributor' : 'data-generation/distributor.md'
         - 'Monitor' : 'data-generation/monitor.md'
+        - 'Data Generation' : 'data-generation/datageneration.md'
+        - 'Data Visualization' : 'data-generation/data-visualization.md'
     - About : 'about.md'
