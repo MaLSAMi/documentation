@@ -17,10 +17,10 @@ Combining only tasksets that are known to be successful is meant to limit the co
 	'PRIORITY': (1,5),
 	'DEADLINE' : (0, 0),
 	'PERIOD': (1,8),
-	'CRITICALTIME' : (0, 0), # is assigned by function depending on PERIOD
-	'NUMBEROFJOBS': (1,8),#(1,10),
+	'CRITICALTIME' : (0, 0),
+	'NUMBEROFJOBS': (1,8),
 	'OFFSET': (0,0),
-	'QUOTA': (100, 100), #(1, 100),
+	'QUOTA': (100, 100),
 	'CAPS': (235, 235),
 	'CORES' : (0, 0),
 	'COREOFFSET' : (0, 0),
