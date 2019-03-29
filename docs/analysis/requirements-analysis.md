@@ -73,11 +73,11 @@ Reinforcement Learning would be helpful in the checkpointing as it will be able 
 ### Learning
 When it comes to learning techniques, there are many options. MaLSAMi is going to look into Deep and Shallow Learning based data analysis and decision making.
 
-#### [Deep Learning](Deep_Learning.md)
+#### [Deep Learning](/machine-learning/deep-learning)
 
 Deep Learning works best when there is a lot of data to sample from. These algorithms will be mostly utilized in the 'offline' phase of the learning. Deep Learning has a variety of different neural network models such as Generative Adversarial Networks (GAN), Spiking Neural Networks (SNN), Feed Forward Networks (FNN), Recurrent Neural Networks (RNN) and Convolutional  CNN.  These networks are specializied for specific types of data mining and analysis and are never a 'one fits all' model. Therefore, we plan to analyze several of these different models. Each of the networks listed below are catered to a certain kind of problem, but they are not too specialized to be unadaptable. 
 
-### [Shallow Learning](Shallow_Learning.md)
+### [Shallow Learning](/machine-learning/shallow-learning)
 
 Shallow Learning techniques are usually much simpler than deep learning. These require less time and energy to train and classify. However, as they are simpler, they do not have the same adaptibility of the neural networks. However, certain algorithms (Support Vector Machines and Random Forest) have proven to be quite effective in binary classifiaction. The aim of the shallow learning is to do an expansive test of different algorithms and understand what their fitting on the data indicates. High accuracy on certain algorithms will indicate different trends in the data. Regardless of whether or not shallow learning is used, these algorithms will bring more insight into the modelling of the data. 
 

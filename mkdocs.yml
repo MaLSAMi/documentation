@@ -10,7 +10,9 @@ markdown_extensions:
         - sane_lists
 
 pages:
-    - Home : 'index.md'
+    - Home : 
+        - 'Home' : 'index.md'
+        - 'First Steps' : 'first-steps.md'
     - Analysis :
         - 'Requirements Analysis' : 'analysis/requirements-analysis.md'
         - 'Schedulability Analysis' : 'analysis/schedulability-analysis.md'
