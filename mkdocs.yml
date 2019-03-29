@@ -20,8 +20,7 @@ pages:
         - 'Machine Learning' : 'machine-learning/machine-learning.md'
         - 'Shallow learning': 'machine-learning/shallow-learning.md'
         - 'Deep Learning': 'machine-learning/deep-learning.md'
-        - Networks :
-            - 'Feed Forward Network': 'machine-learning/nets/ffn.md'
+        - Feed Forward Network : 'machine-learning/nets/ffn.md'
     - Genode : 'genode/genode.md'
     - Data Generation : 
         - 'Distributor' : 'data-generation/distributor.md'
