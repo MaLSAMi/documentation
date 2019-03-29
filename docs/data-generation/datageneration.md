@@ -1,18 +1,38 @@
 # Datageneration 
 
-The implementation responsible for forming the tasks and as a result the tasksets for deployment is in the datageneration repository in the MalSami project. The tasksets are incrementally created beginning with taksets of size one (each taskset consists of one task each) and then are continually created to build tasksets as big as size five (5 tasks per taskset). The progression works as follows:
+The implementation responsible for forming the tasks and as a result the tasksets for deployment is in the datageneration repository in the MaLSAMI project. The tasksets are incrementally created beginning with taksets of size one (each taskset consists of one task each) and then are continually created to build tasksets as big as size four (4 tasks per taskset). The progression works as follows:
+1. At first a certain amount of tasks(different parameter configurations) for each available task type are created.
+2. These tasks are then executed as tasksets of size one and categorized into successful (good) and unsuccessful (bad) tasksets.
 
-1. 'Good' and 'Bad' Tasks are gathered and separated. Each good/bad task is used to create a taskset of size 1 in which each taskset contains one task. As a result both good and bad Tasksets of size one are created. 
+The next steps are repeated after the tasksets of the current size are all executed:
+3. To create tasksets of size n, take all 'good' tasksets of size n-1 and combine them with each 'good' taskset of size 1.
+4. Then execute and categorize.
 
-2. The good/bad tasks of the tasksets of size 1 are then combined with other good/bad tasks of similiar size. As a result, newer good/bad tasksets of size 2 will be created in which the a good taskset will contain a total of 2 good tasks and a bad taskset will contain 2 bad tasks.
-
-3. For tasksets of size 3 (3 Tasks per taskset), the tasks in a good/bad Taskset of size 2 is combined with the tasks of another good/bad Taskset of size 1. Similarly, the newer tasksets of size 3 will have either 3 good tasks or 3 bad tasks. 
-
-4. Repeat for taskset of size n by combining taskset of size *n-1* with taskset of size 1.
-
-At the end, there should be a lot of tasksets as many are repeatedly combined with each other at each step. 
+Combining only tasksets that are known to be successful is meant to limit the combinatorial explosion. But even with this approach, numbers grow rapidly.
 
 
+## Parameters of our Data
+
+```python
+	'PRIORITY': (1,5),
+	'DEADLINE' : (0, 0),
+	'PERIOD': (1,8),
+	'CRITICALTIME' : (0, 0), # is assigned by function depending on PERIOD
+	'NUMBEROFJOBS': (1,8),#(1,10),
+	'OFFSET': (0,0),
+	'QUOTA': (100, 100), #(1, 100),
+	'CAPS': (235, 235),
+	'CORES' : (0, 0),
+	'COREOFFSET' : (0, 0),
+	'ARG':
+			{'hey':(0,0),
+			'pi':(13,21),
+			'tumatmul':(12,19),
+			'cond_mod':(25,30)
+			}
+```
+
+Because we limit the PERIOD to whole seconds it is possible that tasks are blocking each other, which might not have happened if the value was less discrete.
 
 ## Below is a brief description of the important files: 
 
@@ -20,9 +40,9 @@ At the end, there should be a lot of tasksets as many are repeatedly combined wi
 
 ### data_parser.py
 
-The entire taskset data is stored in the log files for bookeeeping. For analysis, this file parses the log files in the chosen directory and stores into a databse. SQLite was used in this implementation but functionality for other mySQL databases should be possible as well. SQL is recommended because of the ease of querying and the connection between the databases. 
+The entire taskset data is stored in the log files for bookkeeping. For analysis, this file parses the log files in the chosen directory and stores into a databse. SQLite was used in this implementation but functionality for other mySQL databases should be possible as well. SQL is recommended because of the ease of querying and the connection between the databases. 
 
-The database consists of these four Tables: 
+The database consists of these three Tables: 
 
 
 1] Job
@@ -104,3 +124,4 @@ For easy book-keeping and facilitated reading and writing to file, the parameter
 This file will initiate the values of the tasks according to the parameter values in parameter_config. This creates the Task object as a list of dictionaries. This package is called from make\_takss.py and with the appropriate parameters which include the number of tasks to make and the package. Depending on the package chosen, the appropriate package will be populated with the selected number of tasks chosen. 
 
 Additionally, this file provides functions for plotting the distribution of the parameters of the tasksets. 
+
