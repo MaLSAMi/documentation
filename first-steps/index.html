@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>About - MaLSAMi Documentation</title>
+  <title>First Steps - MaLSAMi Documentation</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -17,9 +17,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "About";
-    var mkdocs_page_input_path = "about.md";
-    var mkdocs_page_url = "/about/";
+    var mkdocs_page_name = "First Steps";
+    var mkdocs_page_input_path = "first-steps.md";
+    var mkdocs_page_url = "/first-steps/";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js"></script>
@@ -55,9 +55,25 @@
                     
     <a class="" href="..">Home</a>
                 </li>
-                <li class="">
+                <li class=" current">
                     
-    <a class="" href="../first-steps/">First Steps</a>
+    <a class="current" href="./">First Steps</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#first-steps">First Steps</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#test-setup-vagrant">Test Setup (Vagrant)</a></li>
+        
+            <li><a class="toctree-l4" href="#only-genode-image-and-task-binaries">Only Genode Image and Task Binaries</a></li>
+        
+            <li><a class="toctree-l4" href="#local-execution">Local Execution</a></li>
+        
+        </ul>
+    
+
+    </ul>
                 </li>
     </ul>
 	    </li>
@@ -128,15 +144,9 @@
     </ul>
 	    </li>
           
-            <li class="toctree-l1 current">
+            <li class="toctree-l1">
 		
-    <a class="current" href="./">About</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l2"><a href="#goal-of-the-project">Goal of the project</a></li>
-    
-
-    </ul>
+    <a class="" href="../about/">About</a>
 	    </li>
           
         </ul>
@@ -160,8 +170,12 @@
     <li><a href="..">Docs</a> &raquo;</li>
     
       
+        
+          <li>Home &raquo;</li>
+        
+      
     
-    <li>About</li>
+    <li>First Steps</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -171,8 +185,51 @@
           <div role="main">
             <div class="section">
               
-                <h3 id="goal-of-the-project">Goal of the project<a class="headerlink" href="#goal-of-the-project" title="Permanent link">&para;</a></h3>
-<p>This project is about schedulability analysis. </p>
+                <h1 id="first-steps">First Steps<a class="headerlink" href="#first-steps" title="Permanent link">&para;</a></h1>
+<p>To try our setup you first have to checkout the client-tools repo</p>
+<pre><code class="bash">git clone https://github.com/malsami/client-tools
+</code></pre>
+
+<p>from here on out you can use the Makefile in the client-tools repository.
+Switch into the folder:</p>
+<pre><code class="bash">cd client-tools
+</code></pre>
+
+<h2 id="test-setup-vagrant">Test Setup (Vagrant)<a class="headerlink" href="#test-setup-vagrant" title="Permanent link">&para;</a></h2>
+<p>If you simply want to test the setup inside a small vagrant machine, type:</p>
+<pre><code class="bash">make
+</code></pre>
+
+<p>this will take a while, but leave you inside a vagrant machine. </p>
+<p>Here you can go to the distributor component and run a test program.</p>
+<pre><code class="bash">cd /vagrant/distributor/
+sudo python3 test.py
+</code></pre>
+
+<h2 id="only-genode-image-and-task-binaries">Only Genode Image and Task Binaries<a class="headerlink" href="#only-genode-image-and-task-binaries" title="Permanent link">&para;</a></h2>
+<p>If you only want to build the operating system (for the target focnados_pbxa0) including the binaries execute
+If you want another target adjust the parameter accordingly. The binaries can afterwards be found in the &lsquo;bin&rsquo; folder.</p>
+<pre><code class="bash">make genode-init
+make binaries OS-TARGET=focnados_pbxa9
+</code></pre>
+
+<h2 id="local-execution">Local Execution<a class="headerlink" href="#local-execution" title="Permanent link">&para;</a></h2>
+<p>For local execution a dhcp server has to be setup which takes care of ip assignment.
+If the execution applies Genode on Qemu instances sudo rights are necessary to create and remove the network interfaces.
+If the execution uses Genode on real hardware, the boards have to be prepared accordingly and the images must be provided for them to fetch.
+To setup the repository execute (adjust OS-TARGET accordingly)</p>
+<pre><code class="bash">make venv
+make distributor-init
+make genode-init
+make binaries OS-TARGET=focnados_pbxa9
+make datageneration
+</code></pre>
+
+<p>Then you can enter the venv by typing </p>
+<pre><code class="bash">source malsami/bin/activate
+</code></pre>
+
+<p>You are now inside the venv within which the dependencies are ready to execute a programm like e.g. the main.py inside the datageneration.</p>
               
             </div>
           </div>
@@ -180,8 +237,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
+        <a href="../analysis/requirements-analysis/" class="btn btn-neutral float-right" title="Requirements Analysis">Next <span class="icon icon-circle-arrow-right"></span></a>
       
-        <a href="../data-generation/data-visualization/" class="btn btn-neutral" title="Data Visualization"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+        <a href=".." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -207,8 +266,10 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../data-generation/data-visualization/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
       
+      
+        <span style="margin-left: 15px"><a href="../analysis/requirements-analysis/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

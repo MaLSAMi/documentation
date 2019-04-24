@@ -13,19 +13,18 @@
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  <link rel="stylesheet" href="../../css/highlight.css">
   
   <script>
     // Current page data
     var mkdocs_page_name = "Requirements Analysis";
     var mkdocs_page_input_path = "analysis/requirements-analysis.md";
-    var mkdocs_page_url = null;
+    var mkdocs_page_url = "/analysis/requirements-analysis/";
   </script>
   
-  <script src="../../js/jquery-2.1.1.min.js" defer></script>
-  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script> 
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
   
 </head>
 
@@ -39,7 +38,7 @@
         <a href="../.." class="icon icon-home"> MaLSAMi Documentation</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+    <input type="text" name="q" placeholder="Search docs" />
   </form>
 </div>
       </div>
@@ -50,7 +49,17 @@
           
             <li class="toctree-l1">
 		
+    <span class="caption-text">Home</span>
+    <ul class="subnav">
+                <li class="">
+                    
     <a class="" href="../..">Home</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../first-steps/">First Steps</a>
+                </li>
+    </ul>
 	    </li>
           
             <li class="toctree-l1">
@@ -81,39 +90,35 @@
                     
     <a class="" href="../schedulability-analysis/">Schedulability Analysis</a>
                 </li>
-                <li class="">
-                    
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
     <span class="caption-text">Machine Learning</span>
     <ul class="subnav">
-                <li class="toctree-l3">
+                <li class="">
                     
     <a class="" href="../../machine-learning/machine-learning/">Machine Learning</a>
                 </li>
-                <li class="toctree-l3">
+                <li class="">
                     
     <a class="" href="../../machine-learning/shallow-learning/">Shallow learning</a>
                 </li>
-                <li class="toctree-l3">
+                <li class="">
                     
     <a class="" href="../../machine-learning/deep-learning/">Deep Learning</a>
                 </li>
-                <li class="toctree-l3">
-                    
-    <span class="caption-text">Networks</span>
-    <ul class="subnav">
-                <li class="toctree-l4">
+                <li class="">
                     
     <a class="" href="../../machine-learning/nets/ffn/">Feed Forward Network</a>
                 </li>
     </ul>
-                </li>
-    </ul>
-                </li>
-                <li class="">
-                    
+	    </li>
+          
+            <li class="toctree-l1">
+		
     <a class="" href="../../genode/genode/">Genode</a>
-                </li>
-    </ul>
 	    </li>
           
             <li class="toctree-l1">
@@ -128,17 +133,15 @@
                     
     <a class="" href="../../data-generation/monitor/">Monitor</a>
                 </li>
+                <li class="">
+                    
+    <a class="" href="../../data-generation/datageneration/">Data Generation</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../data-generation/data-visualization/">Data Visualization</a>
+                </li>
     </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../../concept/">Concept</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../../testbed/">Testbed</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -188,7 +191,7 @@
 <p>The migration of a task by restoring a checkpoint to another ECU could happen either directly to another ECU or by collecting all the checkpoints of all the ECUs to a different machine and redistributing them to a chosen target ECU when necessary. Another variant of checkpointing would be to create an initial full checkpoint followed by smaller change-based incremental checkpoints. These incremental checkpoints might be integrated into the full checkpoint on the same ECU before sending it to another machine, or every checkpoint is sent right after creation. These smaller based checkpoints are motivated by the necessity of storing and retaining information in the event of an imminent failure. Furthermore, the data would prove to be useful for later analysis. </p>
 <p>Another possible use-case for checkpoints, which is not being looked into is the restart of failed tasks at its last known state on the same machine.</p>
 <p>The decision of where a task is migrated to is generally based on the information about the task. It could also be a posibillity to include the information gained through the checkpoints to find the best solution.</p>
-<p>We have chosen to employ <a href="/machine-learning/machine-learning">machine learning</a> to improve our ability to make these decisions. There are three general phases in which learning would be best applied: </p>
+<p>We have chosen to employ <a href="../../machine-learning/machine-learning">machine learning</a> to improve our ability to make these decisions. There are three general phases in which learning would be best applied: </p>
 <ul>
 <li><strong>Offline Learning</strong> Heavyweight phase where there is a lot of data available and enough resources to extensively train the model. We can train on previously sampled data and can utilize our resources for complicated algorithms. This will be done on a different ECU or computer to analyze as much data  as possible and to perform migration planning.</li>
 <li><strong>Online Learning</strong> This type of online learning will be performed on very strong ECUs. Although these ECUs are strong, we do not have access to the entire dataset and all the resources as we are in the offline learning. Furthermore, we will be learning on data in real-time and will not be able to analyze both ends of the dataset. However, this aspect is necessary as it will simulate the migration planning in real time. These decisions will most likely have a greateer influence on the migration planning. </li>
@@ -234,9 +237,9 @@
 <p>Reinforcement Learning would be helpful in the checkpointing as it will be able to decide whether or not it wants to add a checkpoint based on its environment and available states. Obviously, if the probability of an ecu failing in a particular environment is high, it would be a good idea to add a checkpoint. These are areas that reinforcement learning would be better able to handle rather than regular shallow/deep learning. </p>
 <h3 id="learning">Learning<a class="headerlink" href="#learning" title="Permanent link">&para;</a></h3>
 <p>When it comes to learning techniques, there are many options. MaLSAMi is going to look into Deep and Shallow Learning based data analysis and decision making.</p>
-<h4 id="deep-learning"><a href="Deep_Learning.md">Deep Learning</a><a class="headerlink" href="#deep-learning" title="Permanent link">&para;</a></h4>
+<h4 id="deep-learning"><a href="../../machine-learning/deep-learning">Deep Learning</a><a class="headerlink" href="#deep-learning" title="Permanent link">&para;</a></h4>
 <p>Deep Learning works best when there is a lot of data to sample from. These algorithms will be mostly utilized in the &lsquo;offline&rsquo; phase of the learning. Deep Learning has a variety of different neural network models such as Generative Adversarial Networks (GAN), Spiking Neural Networks (SNN), Feed Forward Networks (FNN), Recurrent Neural Networks (RNN) and Convolutional  CNN.  These networks are specializied for specific types of data mining and analysis and are never a &lsquo;one fits all&rsquo; model. Therefore, we plan to analyze several of these different models. Each of the networks listed below are catered to a certain kind of problem, but they are not too specialized to be unadaptable. </p>
-<h3 id="shallow-learning"><a href="Shallow_Learning.md">Shallow Learning</a><a class="headerlink" href="#shallow-learning" title="Permanent link">&para;</a></h3>
+<h3 id="shallow-learning"><a href="../../machine-learning/shallow-learning">Shallow Learning</a><a class="headerlink" href="#shallow-learning" title="Permanent link">&para;</a></h3>
 <p>Shallow Learning techniques are usually much simpler than deep learning. These require less time and energy to train and classify. However, as they are simpler, they do not have the same adaptibility of the neural networks. However, certain algorithms (Support Vector Machines and Random Forest) have proven to be quite effective in binary classifiaction. The aim of the shallow learning is to do an expansive test of different algorithms and understand what their fitting on the data indicates. High accuracy on certain algorithms will indicate different trends in the data. Regardless of whether or not shallow learning is used, these algorithms will bring more insight into the modelling of the data. </p>
 <h3 id="testing">Testing<a class="headerlink" href="#testing" title="Permanent link">&para;</a></h3>
 <p>For both approaches, we will use the standard metrics of testing for shallow and deep learning. This will include shuffling of training splits, cross validation, and in depth classification reports measuring the accuracy, precision, and recall. The challenges with data mining is dealing with improper and unclean data. Optimally, we would have enough data for extensive testing. Hopefully, the distributor will be able to generate enough worthwhile data to train on. </p>
@@ -250,7 +253,7 @@
         <a href="../schedulability-analysis/" class="btn btn-neutral float-right" title="Schedulability Analysis">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../.." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../first-steps/" class="btn btn-neutral" title="First Steps"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -264,28 +267,26 @@
 
   Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
-      
+	  
         </div>
       </div>
 
     </section>
-
+    
   </div>
 
   <div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../.." style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../../first-steps/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
         <span style="margin-left: 15px"><a href="../schedulability-analysis/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
-    <script>var base_url = '../..';</script>
-    <script src="../../js/theme.js" defer></script>
-      <script src="../../search/main.js" defer></script>
+    <script src="../../js/theme.js"></script>
 
 </body>
 </html>

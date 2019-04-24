@@ -13,19 +13,18 @@
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  <link rel="stylesheet" href="../../css/highlight.css">
   
   <script>
     // Current page data
     var mkdocs_page_name = "Schedulability Analysis";
     var mkdocs_page_input_path = "analysis/schedulability-analysis.md";
-    var mkdocs_page_url = null;
+    var mkdocs_page_url = "/analysis/schedulability-analysis/";
   </script>
   
-  <script src="../../js/jquery-2.1.1.min.js" defer></script>
-  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script> 
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
   
 </head>
 
@@ -39,7 +38,7 @@
         <a href="../.." class="icon icon-home"> MaLSAMi Documentation</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+    <input type="text" name="q" placeholder="Search docs" />
   </form>
 </div>
       </div>
@@ -50,7 +49,17 @@
           
             <li class="toctree-l1">
 		
+    <span class="caption-text">Home</span>
+    <ul class="subnav">
+                <li class="">
+                    
     <a class="" href="../..">Home</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../first-steps/">First Steps</a>
+                </li>
+    </ul>
 	    </li>
           
             <li class="toctree-l1">
@@ -68,39 +77,35 @@
             
     </ul>
                 </li>
-                <li class="">
-                    
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
     <span class="caption-text">Machine Learning</span>
     <ul class="subnav">
-                <li class="toctree-l3">
+                <li class="">
                     
     <a class="" href="../../machine-learning/machine-learning/">Machine Learning</a>
                 </li>
-                <li class="toctree-l3">
+                <li class="">
                     
     <a class="" href="../../machine-learning/shallow-learning/">Shallow learning</a>
                 </li>
-                <li class="toctree-l3">
+                <li class="">
                     
     <a class="" href="../../machine-learning/deep-learning/">Deep Learning</a>
                 </li>
-                <li class="toctree-l3">
-                    
-    <span class="caption-text">Networks</span>
-    <ul class="subnav">
-                <li class="toctree-l4">
+                <li class="">
                     
     <a class="" href="../../machine-learning/nets/ffn/">Feed Forward Network</a>
                 </li>
     </ul>
-                </li>
-    </ul>
-                </li>
-                <li class="">
-                    
+	    </li>
+          
+            <li class="toctree-l1">
+		
     <a class="" href="../../genode/genode/">Genode</a>
-                </li>
-    </ul>
 	    </li>
           
             <li class="toctree-l1">
@@ -115,17 +120,15 @@
                     
     <a class="" href="../../data-generation/monitor/">Monitor</a>
                 </li>
+                <li class="">
+                    
+    <a class="" href="../../data-generation/datageneration/">Data Generation</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../data-generation/data-visualization/">Data Visualization</a>
+                </li>
     </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../../concept/">Concept</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../../testbed/">Testbed</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -183,8 +186,8 @@
 <p>The advantage of offline learning is that we are able to utilize virtually all of our resources and compute time to test multiple algorithms to fit the data. The disadvantage with this is that we will be dealing with a static datasets. Althought this does not imply that the dataset is erroneous, it is not akin to real time data that will happen at the online phase. </p>
 <p>Furthremore, heavy computation and time used to fit a static datasets very likely leads to overfitting. Even if appropriate measures are made, it is possible that the online data could be different from that of the dataset used. </p>
 <p>Analogously, the online training is beneficial and detrimental for the opposite reasons. While online, we do not have as much time and resources as we do while offline. Especially in the situation that we are in now, we must process the data quickly. Therefore, we used the online training as more of a &lsquo;validation&rsquo; stage in which we fine tune the models and hyperparameters. </p>
-<p>The distributor is the module responsible for data generation that we will be used for the schedulability analysis. See the <em><a href="/data-generation/distributor">distributor file</a></em> for more information about the distributor. </p>
-<p>To further analyze the methods we are using, view <em><a href="/machine-learning/machine-learning">Machine Learning</a></em> and the <em><a href="/analysis/requirements-analysis">requirement analysis</a></em></p>
+<p>The distributor is the module responsible for data generation that we will be used for the schedulability analysis. See the <em><a href="../../data-generation/distributor">distributor file</a></em> for more information about the distributor. </p>
+<p>To further analyze the methods we are using, view <em><a href="../../machine-learning/machine-learning">Machine Learning</a></em> and the <em><a href="../../analysis/requirements-analysis">requirement analysis</a></em></p>
               
             </div>
           </div>
@@ -209,12 +212,12 @@
 
   Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
-      
+	  
         </div>
       </div>
 
     </section>
-
+    
   </div>
 
   <div class="rst-versions" role="note" style="cursor: pointer">
@@ -228,9 +231,7 @@
       
     </span>
 </div>
-    <script>var base_url = '../..';</script>
-    <script src="../../js/theme.js" defer></script>
-      <script src="../../search/main.js" defer></script>
+    <script src="../../js/theme.js"></script>
 
 </body>
 </html>

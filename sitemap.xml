@@ -1,68 +1,108 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    
+        
     <url>
-     <loc>None</loc>
-     <lastmod>2018-12-18</lastmod>
+     <loc>/</loc>
+     <lastmod>2019-04-24</lastmod>
      <changefreq>daily</changefreq>
     </url>
+        
     <url>
-     <loc>None</loc>
-     <lastmod>2018-12-18</lastmod>
+     <loc>/first-steps/</loc>
+     <lastmod>2019-04-24</lastmod>
      <changefreq>daily</changefreq>
     </url>
+        
+    
+
+    
+        
     <url>
-     <loc>None</loc>
-     <lastmod>2018-12-18</lastmod>
+     <loc>/analysis/requirements-analysis/</loc>
+     <lastmod>2019-04-24</lastmod>
      <changefreq>daily</changefreq>
     </url>
+        
     <url>
-     <loc>None</loc>
-     <lastmod>2018-12-18</lastmod>
+     <loc>/analysis/schedulability-analysis/</loc>
+     <lastmod>2019-04-24</lastmod>
      <changefreq>daily</changefreq>
     </url>
+        
+    
+
+    
+        
     <url>
-     <loc>None</loc>
-     <lastmod>2018-12-18</lastmod>
+     <loc>/machine-learning/machine-learning/</loc>
+     <lastmod>2019-04-24</lastmod>
      <changefreq>daily</changefreq>
     </url>
+        
     <url>
-     <loc>None</loc>
-     <lastmod>2018-12-18</lastmod>
+     <loc>/machine-learning/shallow-learning/</loc>
+     <lastmod>2019-04-24</lastmod>
      <changefreq>daily</changefreq>
     </url>
+        
     <url>
-     <loc>None</loc>
-     <lastmod>2018-12-18</lastmod>
+     <loc>/machine-learning/deep-learning/</loc>
+     <lastmod>2019-04-24</lastmod>
      <changefreq>daily</changefreq>
     </url>
+        
     <url>
-     <loc>None</loc>
-     <lastmod>2018-12-18</lastmod>
+     <loc>/machine-learning/nets/ffn/</loc>
+     <lastmod>2019-04-24</lastmod>
      <changefreq>daily</changefreq>
     </url>
+        
+    
+
+    
     <url>
-     <loc>None</loc>
-     <lastmod>2018-12-18</lastmod>
+     <loc>/genode/genode/</loc>
+     <lastmod>2019-04-24</lastmod>
      <changefreq>daily</changefreq>
     </url>
+    
+
+    
+        
     <url>
-     <loc>None</loc>
-     <lastmod>2018-12-18</lastmod>
+     <loc>/data-generation/distributor/</loc>
+     <lastmod>2019-04-24</lastmod>
      <changefreq>daily</changefreq>
     </url>
+        
     <url>
-     <loc>None</loc>
-     <lastmod>2018-12-18</lastmod>
+     <loc>/data-generation/monitor/</loc>
+     <lastmod>2019-04-24</lastmod>
      <changefreq>daily</changefreq>
     </url>
+        
     <url>
-     <loc>None</loc>
-     <lastmod>2018-12-18</lastmod>
+     <loc>/data-generation/datageneration/</loc>
+     <lastmod>2019-04-24</lastmod>
      <changefreq>daily</changefreq>
     </url>
+        
     <url>
-     <loc>None</loc>
-     <lastmod>2018-12-18</lastmod>
+     <loc>/data-generation/data-visualization/</loc>
+     <lastmod>2019-04-24</lastmod>
      <changefreq>daily</changefreq>
     </url>
+        
+    
+
+    
+    <url>
+     <loc>/about/</loc>
+     <lastmod>2019-04-24</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
 </urlset>

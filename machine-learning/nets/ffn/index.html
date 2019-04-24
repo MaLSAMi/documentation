@@ -13,19 +13,18 @@
 
   <link rel="stylesheet" href="../../../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  <link rel="stylesheet" href="../../../css/highlight.css">
   
   <script>
     // Current page data
     var mkdocs_page_name = "Feed Forward Network";
     var mkdocs_page_input_path = "machine-learning/nets/ffn.md";
-    var mkdocs_page_url = null;
+    var mkdocs_page_url = "/machine-learning/nets/ffn/";
   </script>
   
-  <script src="../../../js/jquery-2.1.1.min.js" defer></script>
-  <script src="../../../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script> 
+  <script src="../../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../../js/highlight.pack.js"></script> 
   
 </head>
 
@@ -39,7 +38,7 @@
         <a href="../../.." class="icon icon-home"> MaLSAMi Documentation</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+    <input type="text" name="q" placeholder="Search docs" />
   </form>
 </div>
       </div>
@@ -50,7 +49,17 @@
           
             <li class="toctree-l1">
 		
+    <span class="caption-text">Home</span>
+    <ul class="subnav">
+                <li class="">
+                    
     <a class="" href="../../..">Home</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../first-steps/">First Steps</a>
+                </li>
+    </ul>
 	    </li>
           
             <li class="toctree-l1">
@@ -65,45 +74,41 @@
                     
     <a class="" href="../../../analysis/schedulability-analysis/">Schedulability Analysis</a>
                 </li>
-                <li class=" current">
-                    
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
     <span class="caption-text">Machine Learning</span>
     <ul class="subnav">
-                <li class="toctree-l3">
+                <li class="">
                     
     <a class="" href="../../machine-learning/">Machine Learning</a>
                 </li>
-                <li class="toctree-l3">
+                <li class="">
                     
     <a class="" href="../../shallow-learning/">Shallow learning</a>
                 </li>
-                <li class="toctree-l3">
+                <li class="">
                     
     <a class="" href="../../deep-learning/">Deep Learning</a>
                 </li>
-                <li class="toctree-l3 current">
-                    
-    <span class="caption-text">Networks</span>
-    <ul class="subnav">
-                <li class="toctree-l4 current">
+                <li class=" current">
                     
     <a class="current" href="./">Feed Forward Network</a>
     <ul class="subnav">
             
-    <li class="toctree-l5"><a href="#feed-forward-network-documentation">Feed Forward Network Documentation</a></li>
+    <li class="toctree-l3"><a href="#feed-forward-network-documentation">Feed Forward Network Documentation</a></li>
     
 
     </ul>
                 </li>
     </ul>
-                </li>
-    </ul>
-                </li>
-                <li class="">
-                    
+	    </li>
+          
+            <li class="toctree-l1">
+		
     <a class="" href="../../../genode/genode/">Genode</a>
-                </li>
-    </ul>
 	    </li>
           
             <li class="toctree-l1">
@@ -118,17 +123,15 @@
                     
     <a class="" href="../../../data-generation/monitor/">Monitor</a>
                 </li>
+                <li class="">
+                    
+    <a class="" href="../../../data-generation/datageneration/">Data Generation</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../data-generation/data-visualization/">Data Visualization</a>
+                </li>
     </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../../../concept/">Concept</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../../../testbed/">Testbed</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -158,15 +161,7 @@
     
       
         
-          <li>Networks &raquo;</li>
-        
-      
-        
           <li>Machine Learning &raquo;</li>
-        
-      
-        
-          <li>Analysis &raquo;</li>
         
       
     
@@ -181,21 +176,25 @@
             <div class="section">
               
                 <h3 id="feed-forward-network-documentation">Feed Forward Network Documentation<a class="headerlink" href="#feed-forward-network-documentation" title="Permanent link">&para;</a></h3>
-<p>This was a four layers feed forward neural network with two hidden layers of arbitrary length. The hidden layers each had leaky-RELU non-linearities. </p>
-<p>The input dimension (N X D) constituted the number of tasksets (N) where each taskset contained a certain number of tasks. The parameters of these individual tasks within the taskset made up the parameters/features of the taskset itself. </p>
-<p>The output dimension (H2 X 1) was a single neuron which outputs a &lsquo;1&rsquo; or &lsquo;0&rsquo; using a sigmoid function. The code is available <a href="https://github.com/RobertHa/Bachelor-Thesis">here</a>. </p>
-<p>The user can determine how many hidden units he or she would like to use. He or she is also allowed to decide on the number of epochs and the learning rate. This gives the user a bit of flexibility in fitting the model to the task data. </p>
-<p>Although ReLU functions are very popular with most Feed-Forward Neural Networks. ReLU functions are popular because of their handling of the vanishing gradient that often arises from other activation functions. The advantage of Leaky ReLU is that it preserves more of the data than a regular ReLU function. While the ReLU chooses the max(0,input), the leaky-ReLU will choose:</p>
-<p>$
-\begin{array}{cc}
-  { &amp; 
-    \begin{array}{cc}
-      0 &amp; x\leq 0 \
-      \frac{100-x}{100} &amp; 0\leq x\leq 100 \
-      0 &amp; 100\leq x
-    \end{array}
-\end{array}
-$</p>
+<p>This project attempted to train a feed forward network on taskset parameters to predict whether or not a taskset represents an executable combination of tasks.</p>
+<p>In the end it is a four layers feed forward neural network with two hidden layers of size 50. The hidden layers each had leaky-RELU non-linearities. </p>
+<p>Although ReLU functions are very popular with most Feed-Forward Neural Networks. ReLU functions are popular because of their handling of the vanishing gradient that often arises from other activation functions. The advantage of Leaky ReLU is that it preserves more of the data than a regular ReLU function. While the ReLU chooses the max(0,input), the leaky-ReLU will choose: x for x &ge; 0 and otherwise &alpha; * x where &alpha; is an argument to the function, with a default value of 0.01.</p>
+<p>The input dimension (N X D) constituted the number of tasksets (N) where each taskset contained a certain number of tasks. The parameters of these individual tasks within the taskset made up the parameters/features of the taskset itself. In our case D equals 12 for a taskset of size three. </p>
+<p>The output dimension (N X 2) is two neurons which each output a value between &lsquo;1&rsquo; and &lsquo;0&rsquo; using a sigmoid function. </p>
+<p>The final configuration of the network consists of the following:</p>
+<ul>
+<li>mini batch size: 30</li>
+<li>hidden layers: 2, both of size 50</li>
+<li>learning rate: 1e-5</li>
+<li>loss function: CrossEntropyLoss</li>
+<li>optimizer: Adam</li>
+</ul>
+<p>The preprocessing of the data included the removal of parameters that were not unique, thus having no impact on the training, removing some tasksets, which have parameters that were thought to be outliers that distorted the normalized data followed, of course by normalizing the input values.
+After about 200 epochs improvement starts to stagnate at an accuracy of about 70% if an error of up to 0.1 is allowed.
+The next 950 epochs only show an improvement of another 4% on the same data.</p>
+<p>The available data was split into 60% training, 20% validation and 20% test data.
+Out of the 13 parameters per task only 4 were distinct. In the end only the priority, the argument, the period and the number of jobs were kept.</p>
+<p>Previously to the work in this project a Bachelors Thesis tried to train a small feed forward network on a very limited dataset. The thesis only used a tasktype identifyer and the given critical time as inputs. The code is available <a href="https://github.com/RobertHa/Bachelor-Thesis">here</a>.</p>
               
             </div>
           </div>
@@ -220,12 +219,12 @@ $</p>
 
   Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
-      
+	  
         </div>
       </div>
 
     </section>
-
+    
   </div>
 
   <div class="rst-versions" role="note" style="cursor: pointer">
@@ -239,9 +238,7 @@ $</p>
       
     </span>
 </div>
-    <script>var base_url = '../../..';</script>
-    <script src="../../../js/theme.js" defer></script>
-      <script src="../../../search/main.js" defer></script>
+    <script src="../../../js/theme.js"></script>
 
 </body>
 </html>

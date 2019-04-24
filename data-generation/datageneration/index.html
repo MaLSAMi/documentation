@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Data Generation - MaLSAMi Documentation</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Data Generation";
+    var mkdocs_page_input_path = "data-generation/datageneration.md";
+    var mkdocs_page_url = "/data-generation/datageneration/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> MaLSAMi Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Home</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../..">Home</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../first-steps/">First Steps</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Analysis</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../analysis/requirements-analysis/">Requirements Analysis</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../analysis/schedulability-analysis/">Schedulability Analysis</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Machine Learning</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../machine-learning/machine-learning/">Machine Learning</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../machine-learning/shallow-learning/">Shallow learning</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../machine-learning/deep-learning/">Deep Learning</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../machine-learning/nets/ffn/">Feed Forward Network</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../genode/genode/">Genode</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Data Generation</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../distributor/">Distributor</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../monitor/">Monitor</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Data Generation</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#datageneration">Datageneration</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#parameters-of-our-data">Parameters of our Data</a></li>
+        
+            <li><a class="toctree-l4" href="#below-is-a-brief-description-of-the-important-files">Below is a brief description of the important files:</a></li>
+        
+            <li><a class="toctree-l4" href="#helper-functions">Helper Functions</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../data-visualization/">Data Visualization</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../about/">About</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">MaLSAMi Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Data Generation &raquo;</li>
+        
+      
+    
+    <li>Data Generation</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="datageneration">Datageneration<a class="headerlink" href="#datageneration" title="Permanent link">&para;</a></h1>
+<p>The implementation responsible for forming the tasks and as a result the tasksets for deployment is in the datageneration repository in the MaLSAMI project. The tasksets are incrementally created beginning with taksets of size one (each taskset consists of one task each) and then are continually created to build tasksets as big as size four (4 tasks per taskset). The progression works as follows:
+1. At first a certain amount of tasks(different parameter configurations) for each available task type are created.
+2. These tasks are then executed as tasksets of size one and categorized into successful (good) and unsuccessful (bad) tasksets.</p>
+<p>The next steps are repeated after the tasksets of the current size are all executed:
+3. To create tasksets of size n, take all &lsquo;good&rsquo; tasksets of size n-1 and combine them with each &lsquo;good&rsquo; taskset of size 1.
+4. Then execute and categorize.</p>
+<p>Combining only tasksets that are known to be successful is meant to limit the combinatorial explosion. But even with this approach, numbers grow rapidly.</p>
+<h2 id="parameters-of-our-data">Parameters of our Data<a class="headerlink" href="#parameters-of-our-data" title="Permanent link">&para;</a></h2>
+<pre><code class="python">    'PRIORITY': (1,5),
+    'DEADLINE' : (0, 0),
+    'PERIOD': (1,8),
+    'CRITICALTIME' : (0, 0),
+    'NUMBEROFJOBS': (1,8),
+    'OFFSET': (0,0),
+    'QUOTA': (100, 100),
+    'CAPS': (235, 235),
+    'CORES' : (0, 0),
+    'COREOFFSET' : (0, 0),
+    'ARG':
+            {'hey':(0,0),
+            'pi':(13,21),
+            'tumatmul':(12,19),
+            'cond_mod':(25,30)
+            }
+</code></pre>
+
+<p>Because we limit the PERIOD to whole seconds it is possible that tasks are blocking each other, which might not have happened if the value was less discrete.</p>
+<h2 id="below-is-a-brief-description-of-the-important-files">Below is a brief description of the important files:<a class="headerlink" href="#below-is-a-brief-description-of-the-important-files" title="Permanent link">&para;</a></h2>
+<h3 id="data_parserpy">data_parser.py<a class="headerlink" href="#data_parserpy" title="Permanent link">&para;</a></h3>
+<p>The entire taskset data is stored in the log files for bookkeeping. For analysis, this file parses the log files in the chosen directory and stores into a databse. SQLite was used in this implementation but functionality for other mySQL databases should be possible as well. SQL is recommended because of the ease of querying and the connection between the databases. </p>
+<p>The database consists of these three Tables: </p>
+<p>1] Job</p>
+<p>2] Task</p>
+<p>3] TaskSet</p>
+<p>1] Job table consists of all the jobs and its respective attributes. It also contains a column for the TaskID which referes to the Task that it was placed in and a SetID column which refers to the TaskSetID that it is a part of. </p>
+<p>2] The <em>Task</em> table consists of all the tasks that were deployed by the distributor. The attributes include the &ldquo;Priority&rdquo;, &ldquo;Deadline&rdquo;, and &ldquo;Number of Jobs&rdquo;. It&rsquo;s primary key is its TaskID which is decided upon by the taskset. </p>
+<p>3] The <em>TaskSet</em> table consists of all the Tasksets and is primarily referenced through its SetID. It also contains the IDs of all the Tasks and has a column indicating if the respective TaskSet was successful or not. Each Taskset has <em>n</em> columns which corresponds to n Tasks in the respective TaskSet. For a TaskSet of size k &lt; n. The first <em>k</em> columns each contain the respective TaskIDs and the remaining contain <em>-1</em>, indicating that the columns are empty. </p>
+<p>Here are some example queries to query the database for a dataset: </p>
+<p>Get TaskSets of size <em>1</em>: </p>
+<pre><code class="sqlite3">select TaskSet.Set_ID, Task.*, TaskSet.Successful 
+ from Task 
+ inner join TaskSet on Task.Task_ID = TaskSet.TASK1_ID 
+</code></pre>
+
+<p>Get TaskSets of size <em>3</em>: </p>
+<p><code>sqlite3
+ select TaskSet.Set_ID, t1.*, t2.*, t3.*, TaskSet.Successful '
+  from Task t1, Task t2, Task t3 
+  inner join TaskSet on t1.Task_ID = TaskSet.TASK1_ID 
+  and 
+  t2.Task_ID = TaskSet.TASK2_ID 
+  and 
+  t3.Task_ID = TaskSet.TASK3_ID 
+  and TaskSet.TASK4_ID = -1</code></p>
+<p><strong>NOTE</strong>: These quereies were performed for a SQLite database. Other databases may have differences.</p>
+<h3 id="make95taskspy">make_tasks.py<a class="headerlink" href="#make95taskspy" title="Permanent link">&para;</a></h3>
+<p>This calls a helper function in the <em>parameter_config.py</em> to generate a file per task type defined in the <em>parameter_config.taskTypes</em>. Each file consists of <em>parameter_config.linesPerCall</em> lines and each line is a list of hash values with <em>parameter_config.tasksPerLine</em> values.</p>
+<h3 id="mainpy">main.py<a class="headerlink" href="#mainpy" title="Permanent link">&para;</a></h3>
+<p>The <em>main.py</em> can be called without argument, but for each task in <em>parameter_config.taskTypes</em> there has to exist a file (created by executing <em>make_tasks.py</em>). <em>main.py</em> can also be called with the argument <strong>c</strong> to continue the execution with data loaded from the following files: <em>bad_tasksets</em>, <em>good_tasksets</em> and, if available, <em>possible_tasksets</em>. These contain information gained by a previous execution of <em>main.py</em>.</p>
+<p>Other options: </p>
+<p><strong>ss</strong> - &lsquo;Show Status&rsquo;. Print current status of the data generation and the current length of all the task lists</p>
+<p><strong>h</strong> - Halt Machines</p>
+<p><strong>k</strong> - Kill all Machines </p>
+<p><strong>s</strong> - Save current progress</p>
+<p><strong>x</strong> - Clean exit </p>
+<h2 id="helper-functions">Helper Functions<a class="headerlink" href="#helper-functions" title="Permanent link">&para;</a></h2>
+<h3 id="parameter95configpy">parameter_config.py<a class="headerlink" href="#parameter95configpy" title="Permanent link">&para;</a></h3>
+<p>This file contains all the parameters of the variables and data structure we use for the data generation. </p>
+<p>Parameter are randomly chosen within a range of suitable values. (&ldquo;Priority&rdquo;: (1,5) indicates that a random task will be generated with a random value between 1 and 5. ) This file is referenced numerous time in the data creation while specifying parameters. </p>
+<p>For easy book-keeping and facilitated reading and writing to file, the parameters are stored in a concatenated strings before the main task generation is made. This ensure uniqueness and also an easy reference to the tasks and the tasksets. </p>
+<h3 id="value95initpy">value_init.py<a class="headerlink" href="#value95initpy" title="Permanent link">&para;</a></h3>
+<p>This file will initiate the values of the tasks according to the parameter values in parameter_config. This creates the Task object as a list of dictionaries. This package is called from make_takss.py and with the appropriate parameters which include the number of tasks to make and the package. Depending on the package chosen, the appropriate package will be populated with the selected number of tasks chosen. </p>
+<p>Additionally, this file provides functions for plotting the distribution of the parameters of the tasksets. </p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../data-visualization/" class="btn btn-neutral float-right" title="Data Visualization">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../monitor/" class="btn btn-neutral" title="Monitor"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../monitor/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../data-visualization/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+
+</body>
+</html>

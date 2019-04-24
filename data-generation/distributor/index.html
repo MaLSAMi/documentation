@@ -13,19 +13,18 @@
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  <link rel="stylesheet" href="../../css/highlight.css">
   
   <script>
     // Current page data
     var mkdocs_page_name = "Distributor";
     var mkdocs_page_input_path = "data-generation/distributor.md";
-    var mkdocs_page_url = null;
+    var mkdocs_page_url = "/data-generation/distributor/";
   </script>
   
-  <script src="../../js/jquery-2.1.1.min.js" defer></script>
-  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script> 
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
   
 </head>
 
@@ -39,7 +38,7 @@
         <a href="../.." class="icon icon-home"> MaLSAMi Documentation</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+    <input type="text" name="q" placeholder="Search docs" />
   </form>
 </div>
       </div>
@@ -50,7 +49,17 @@
           
             <li class="toctree-l1">
 		
+    <span class="caption-text">Home</span>
+    <ul class="subnav">
+                <li class="">
+                    
     <a class="" href="../..">Home</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../first-steps/">First Steps</a>
+                </li>
+    </ul>
 	    </li>
           
             <li class="toctree-l1">
@@ -65,39 +74,35 @@
                     
     <a class="" href="../../analysis/schedulability-analysis/">Schedulability Analysis</a>
                 </li>
-                <li class="">
-                    
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
     <span class="caption-text">Machine Learning</span>
     <ul class="subnav">
-                <li class="toctree-l3">
+                <li class="">
                     
     <a class="" href="../../machine-learning/machine-learning/">Machine Learning</a>
                 </li>
-                <li class="toctree-l3">
+                <li class="">
                     
     <a class="" href="../../machine-learning/shallow-learning/">Shallow learning</a>
                 </li>
-                <li class="toctree-l3">
+                <li class="">
                     
     <a class="" href="../../machine-learning/deep-learning/">Deep Learning</a>
                 </li>
-                <li class="toctree-l3">
-                    
-    <span class="caption-text">Networks</span>
-    <ul class="subnav">
-                <li class="toctree-l4">
+                <li class="">
                     
     <a class="" href="../../machine-learning/nets/ffn/">Feed Forward Network</a>
                 </li>
     </ul>
-                </li>
-    </ul>
-                </li>
-                <li class="">
-                    
+	    </li>
+          
+            <li class="toctree-l1">
+		
     <a class="" href="../../genode/genode/">Genode</a>
-                </li>
-    </ul>
 	    </li>
           
             <li class="toctree-l1">
@@ -130,17 +135,15 @@
                     
     <a class="" href="../monitor/">Monitor</a>
                 </li>
+                <li class="">
+                    
+    <a class="" href="../datageneration/">Data Generation</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../data-visualization/">Data Visualization</a>
+                </li>
     </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../../concept/">Concept</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../../testbed/">Testbed</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -185,20 +188,32 @@
             <div class="section">
               
                 <h1 id="distributor">Distributor<a class="headerlink" href="#distributor" title="Permanent link">&para;</a></h1>
-<p>Distributor is the main class/entity that controls and distributes host sessions to manage tasksets. Upon startup, the distributor will have a preset value of one host session that it will be able to spawn. The user is permitted to change this number at any time up to a hardcoded limit of forty one. Machines set to be closed will finish their assigned taskset before being shut down. The distributor is mainly used for gathering large-scale data about autonomous system schedulability-tasks, which can be used for data mining and analysis. </p>
+<p>Distributor is the main class/entity that controls and distributes host sessions to manage tasksets. Upon startup, the distributor will have a preset value of one host session that it will be able to spawn. The user is permitted to change this number at any time up to a hardcoded limit of fortytwo (QEMU instances). Machines set to be closed will finish their assigned taskset before being shut down. The distributor is mainly used for gathering large-scale data about autonomous system schedulability-tasks, which can be used for data mining and analysis. </p>
 <h2 id="set-up-and-configuration">Set up and Configuration<a class="headerlink" href="#set-up-and-configuration" title="Permanent link">&para;</a></h2>
-<p>Clone the client-tools repository and initialize the submodules and place a working <a href="https://argos-research.github.io/documentation/">image.elf</a> file inside the client-tools directory.</p>
+<p>Clone the client-tools repository, move to the client-tools directory and execute the make commands as shown below. The value &ldquo;focnados_pbxa9&rdquo; that is passed to the OS-TARGET argument can be substituted for the intended target.</p>
+<pre><code class="bash">git clone https://www.github.com/malsami/client-tools
+cd client-tools
+make distributor-init
+make make genode-init
+make binaries OS-TARGET=focnados_pbxa9
+</code></pre>
+
+<p>and initialize the submodules and place a working <a href="https://argos-research.github.io/documentation/">image.elf</a> file inside the client-tools directory.</p>
 <h3 id="with-vagrant">With Vagrant<a class="headerlink" href="#with-vagrant" title="Permanent link">&para;</a></h3>
-<p>A <strong>vagrant</strong> script is provided in the client-tools repository, which will set up the appropriate development environment and prepare it for use without any manual installation or configuration.</p>
-<p>(Executing the distributor inside a vagrant machine leads to an unknown error, which stops the execution at some point after about ten to thirty hours. As the vagrant machine serves only as a test and development environment, this is not a critical issue and will not be further investigated, as mentioned in the according <a href="https://github.com/malsami/distributor_service/issues/9">issue</a>)</p>
+<p>A <strong>vagrant</strong> script is provided in the client-tools repository, which will set up the appropriate development environment and prepare it for use without any manual installation or configuration.
+This can be setup via</p>
+<pre><code class="bash">make vagrant
+</code></pre>
+
+<p>after telling vagrant to wich interface to connect, you will end up inside a vagrant machine.
+If you </p>
+<pre><code class="bash">cd /Vagrant
+</code></pre>
+
+<p>you will be in the mounted client-tools folder.</p>
+<p>(In the past, executing the distributor inside a vagrant machine lead to an unknown error, which stops the execution at some point after about ten to thirty hours. As the vagrant machine serves only as a test and development environment, this is not a critical issue and will not be further investigated, as mentioned in the according <a href="https://github.com/malsami/distributor/issues/9">issue</a>. Whether this is still the case or not is unclear, as no distributor ran that long inside a vagrant machine ever again.)</p>
 <h3 id="manual-setup">Manual Setup<a class="headerlink" href="#manual-setup" title="Permanent link">&para;</a></h3>
-<p>Install Python 3.5 and pip3</p>
-<pre><code>sudo apt-get install python3.5 -qq
-sudo apt-get  install python3-pip -qq
-</code></pre>
-<p>Install the requirements for the taskgen module</p>
-<pre><code>sudo pip3 install -r client-tools/taskgen/requirements.txt
-</code></pre>
+<p>To run the distrubutor directly on your system, the bridge functionality and networking components have to be installed.</p>
 <p>Install bridge functionality for networking:</p>
 <pre><code>sudo apt-get install bridge-utils -qq
 </code></pre>
@@ -208,13 +223,13 @@ sudo cp dhcpd.conf /etc/dhcp/
 </code></pre>
 <p>Set up the bridge and assign an IP address (consult the dhcp.conf file for more information on IP ranges)</p>
 <pre><code>sudo brctl addbr br0
-sudo ip addr add 10.200.40.1/21 dev br0
+sudo ip addr add 10.200.45.254/24 dev br0
 </code></pre>
 <p>Adjust /etc/network/interfaces file with preliminary networking information</p>
-<pre><code>sudo sh -c 'echo "auto br0\niface br0 inet dhcp\nbridge_ports eth0\nbridge_stp off\nbridge_maxwait 0\nbridge_fd 0\n" &gt;&gt; /etc/network/interfaces'
+<pre><code>sudo sh -c 'echo "\nauto br0\niface br0 inet static\n\thwaddress ether DE:AD:BE:EF:69:01\n\taddress 10.200.45.254\n\tnetmask 255.255.255.0\n\tgateway 10.200.45.254\nbridge_ports eth0\nbridge_stp off\nbridge_maxwait 0\nbridge_fd 0\n" &gt;&gt; /etc/network/interfaces'
 </code></pre>
 <p>Install qemu and screen for spawning host sessions from the distributor and for easy visualization of spawned sessions. </p>
-<pre><code>sudo apt-get install qemu -qq
+<pre><code>make qemu
 sudo apt-get install screen -qq
 </code></pre>
 <p>Start the dhcp service</p>
@@ -222,15 +237,20 @@ sudo apt-get install screen -qq
 </code></pre>
 <p>The machine should now be ready for use. </p>
 <h2 id="using-the-distributor">Using the Distributor<a class="headerlink" href="#using-the-distributor" title="Permanent link">&para;</a></h2>
-<p>The following is an example execution to provide better understanding.</p>
-<p><strong>Open up the interactive python shell</strong> in the directory &lsquo;distributor_service&rsquo; by typing (You can also create and execute this in a script)</p>
+<p>The following is an example execution to provide better understanding.
+First change into the created python environment by typing</p>
+<pre><code>source malsami/bin/activate
+</code></pre>
+<p>You are now inside the python environment. (To leave it just type &ldquo;deactivate&rdquo;)</p>
+<p><strong>Open up the interactive python shell</strong> in the directory &lsquo;distributor&rsquo; by typing (You can also create and execute this in a script)</p>
 <pre><code>sudo python3
 </code></pre>
+<p>sudo is necessary to allow for the creation and destruction of tap devices, via which the qemu instances are connected to the bridge.</p>
 <p><strong>Add appropriate imports:</strong> </p>
 <p>(&lsquo;example.py&rsquo; holds some tasksets for testing, &lsquo;loggingMonitor.py&rsquo; is a <a href="../monitor/">Monitor</a> for testing, which writes to logs/monitor.log)</p>
-<pre><code>from malsamiTest import example5
-from monitors.loggingMonitor import LoggingMonitor
-from distributor import Distributor
+<pre><code>from test import example5
+from distributor.distributorClass import Distributor
+from distributor.monitors.loggingMonitor import LoggingMonitor
 </code></pre>
 <p>Defining a monitor and tasksets for the execution is left to the user.</p>
 <p><strong>Initialize modules:</strong></p>
@@ -239,8 +259,8 @@ lm = LoggingMonitor()
 dist = Distributor()
 </code></pre>
 <p>Now the distributor is running.</p>
-<p><strong>Adding a job</strong> is possible via the add_jobs(taskset, monitor) function: </p>
-<pre><code>dist.add_job(t,lm)
+<p><strong>Adding a job</strong> is possible via the add_jobs([taskset], monitor) function: </p>
+<pre><code>dist.add_job([t],lm)
 </code></pre>
 <p>This will spawn machines acording to the current max_machine value.</p>
 <p>Note: You can repeat the above command to queue multiple jobs whenever you please.</p>
@@ -250,25 +270,31 @@ dist = Distributor()
 <p>To kill a detached screen type:</p>
 <pre><code>sudo screen -X -S &lt;name\_of\_screen&gt; kill
 </code></pre>
-<p>The log files of the genode instances are also saved in the log/ directory.</p>
+<p>The log files of the genode instances are also saved in the distributor/log/ directory.</p>
 <p>Additionally, you can adjust the number of spawned machines, also while the distributor is running. See the distributor functions for more information. </p>
 <h2 id="distributor-functions">Distributor functions<a class="headerlink" href="#distributor-functions" title="Permanent link">&para;</a></h2>
-<p>Setting max machines to a value between 1 and 42. You can change this anytime as this only affects the maximum total number of spawned machines. If machines are active, the number will be adapted accordingly. Closing machines will still finish their current taskset before shutting down.</p>
+<p>Setting max machines to a value between 1 and 42. You can change this anytime as this only affects the maximum total number of spawned machines. If machines are active, the number will be adapted accordingly. Closing machines will still finish their current taskset before shutting down. (The argument &ldquo;max_allowed&rdquo; can be passed in the Distributors init() to adjust the limit.):</p>
 <pre><code>    set_max_machine_value(numMachines)
 </code></pre>
-<p>Function to check if the distributor is busy or not. </p>
+<p>Function to check if the distributor is busy or not:</p>
 <pre><code>    get_distributor_state()
 </code></pre>
-<p>Return current maximum value of possible active machines</p>
+<p>Return current maximum value of possible active machines:</p>
 <pre><code>    get_max_machine_value()
 </code></pre>
 <p>Creating a new job and adding it to a list of jobs to be worked on.
-The function is instantiating a new object of type TaskSetQueue which is then appended to the list of jobs to be processed.</p>
-<pre><code>    add_job(taskset, monitor, *session_parameters)
+The function is instantiating a new object of type _Job which is then appended to the list of jobs to be processed:</p>
+<pre><code>    add_job(tasksetList, monitor=None, offset=0, *session_params)
 </code></pre>
-<p>A job always consists of Taskset t and a Monitor, the session_parameters are optional. Inside the method a TaskSetQueue will hold the iterator which is returned by t.variants()</p>
-<p>Kill all machines that are currently running </p>
+<p>A job always consists of list of TaskSet tasksetList and a Monitor implementing AbstractMonitor from monitor.py, the session_parameters are optional. Inside the method a _Job() will be created to hold the iterator over the list.</p>
+<p>Kill all machines that are currently running <strong>without</strong> waiting for current tasksets to finish:</p>
 <pre><code>    kill_all_machines()
+</code></pre>
+<p>Stop all machines after they finished the execution of their current taskset:</p>
+<pre><code>    shut_down_all_machines()
+</code></pre>
+<p>Resume stopped machines:</p>
+<pre><code>    resume()
 </code></pre>
 <h2 id="the-machine-class">The Machine class<a class="headerlink" href="#the-machine-class" title="Permanent link">&para;</a></h2>
 <p>The &lsquo;machine.py&rsquo; implements a class which extends threading.Thread.</p>
@@ -297,12 +323,12 @@ The function is instantiating a new object of type TaskSetQueue which is then ap
 
   Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
-      
+	  
         </div>
       </div>
 
     </section>
-
+    
   </div>
 
   <div class="rst-versions" role="note" style="cursor: pointer">
@@ -316,9 +342,7 @@ The function is instantiating a new object of type TaskSetQueue which is then ap
       
     </span>
 </div>
-    <script>var base_url = '../..';</script>
-    <script src="../../js/theme.js" defer></script>
-      <script src="../../search/main.js" defer></script>
+    <script src="../../js/theme.js"></script>
 
 </body>
 </html>

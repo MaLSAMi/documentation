@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Machine Learning - MaLSAMi Documentation</title>
+  <title>Data Visualization - MaLSAMi Documentation</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -17,9 +17,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Machine Learning";
-    var mkdocs_page_input_path = "machine-learning/machine-learning.md";
-    var mkdocs_page_url = "/machine-learning/machine-learning/";
+    var mkdocs_page_name = "Data Visualization";
+    var mkdocs_page_input_path = "data-generation/data-visualization.md";
+    var mkdocs_page_url = "/data-generation/data-visualization/";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -81,27 +81,21 @@
 		
     <span class="caption-text">Machine Learning</span>
     <ul class="subnav">
-                <li class=" current">
+                <li class="">
                     
-    <a class="current" href="./">Machine Learning</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#machine-learning">Machine Learning</a></li>
-    
-
-    </ul>
+    <a class="" href="../../machine-learning/machine-learning/">Machine Learning</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../shallow-learning/">Shallow learning</a>
+    <a class="" href="../../machine-learning/shallow-learning/">Shallow learning</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../deep-learning/">Deep Learning</a>
+    <a class="" href="../../machine-learning/deep-learning/">Deep Learning</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../nets/ffn/">Feed Forward Network</a>
+    <a class="" href="../../machine-learning/nets/ffn/">Feed Forward Network</a>
                 </li>
     </ul>
 	    </li>
@@ -117,19 +111,25 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../../data-generation/distributor/">Distributor</a>
+    <a class="" href="../distributor/">Distributor</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../data-generation/monitor/">Monitor</a>
+    <a class="" href="../monitor/">Monitor</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../data-generation/datageneration/">Data Generation</a>
+    <a class="" href="../datageneration/">Data Generation</a>
                 </li>
-                <li class="">
+                <li class=" current">
                     
-    <a class="" href="../../data-generation/data-visualization/">Data Visualization</a>
+    <a class="current" href="./">Data Visualization</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#data-visualizations">Data Visualizations</a></li>
+    
+
+    </ul>
                 </li>
     </ul>
 	    </li>
@@ -161,11 +161,11 @@
     
       
         
-          <li>Machine Learning &raquo;</li>
+          <li>Data Generation &raquo;</li>
         
       
     
-    <li>Machine Learning</li>
+    <li>Data Visualization</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -175,11 +175,26 @@
           <div role="main">
             <div class="section">
               
-                <h3 id="machine-learning">Machine Learning<a class="headerlink" href="#machine-learning" title="Permanent link">&para;</a></h3>
-<p>Machine Learning is a useful tool for <em><a href="https://en.wikipedia.org/wiki/Machine_learning">pattern matching</a></em> and curve fitting to make predictions based on data and its underlying patterns. Given the recent breakthroughs and ease of use, it is worthwhile to extend the research of schedulability analysis to the lens of machine learning. These algorithms will be able to interpret the data in much more efficient and feasible ways than other algorithms. Since we are using real-time systems, we must also analyze the efficiency and cost of the algorithms and understand the tradeoffs among different techniques. Certain algorithms may be more suitable for the offline training phase while others on the online training phase. All of these are factors which will be considered with this analysis. </p>
-<p>The models will be evaluated primarily as a cost benefit analysis with regards to its execution cost (resources required, time to train and classify) and its classification ability. At the very least, machine learning should help to model the data with accuracy where predictions bring more success than standard techniques. </p>
-<p>We are pursuing both routes with <em><a href="../deep-learning">Deep Learning</a></em> and <em><a href="../shallow-learning">Shallow_Learning</a></em> to compare the approaches. Although deep learning models are more flexible and advanced than their shallow learning counterparts, it is important to analyze both to see the tradeoffs of both approaches. Since resources and time of execution are more important to consider in the online than the offline learning phases, it is important to see whether we can emulate the accuracy of a heavyweight neural network with a lighter weight shallow-learning algorithm. Furthermore, different algorithms acheive higher accuracy depending on the modelling of the data. A naive bayes classification with high accuracy will indicate data that is mostly independent and uncorrelated with each other.  </p>
-<p>We hope that testing a wide variety of these approaches will reveal important information for any kind of future schedulability analysis. Understanding the data is the most important aspect and will provide useful information for any kind of feature engineering that may be done in the future. For more information on the specific algorithms, please see the <em><a href="../deep-learning/">Deep Learning</a></em> and <em><a href="../shallow-learning/">Shallow_Learning</a></em> pages. </p>
+                <h1 id="data-visualizations">Data Visualizations<a class="headerlink" href="#data-visualizations" title="Permanent link">&para;</a></h1>
+<p>To get an idea of how the data is distributed, we displayed the data and its hyperparameters using different visualization plots:</p>
+<p>Here is an example of the first ten lines of the Task Table</p>
+<p><img alt="Task Table" src="../../../images/TaskTable.PNG" /></p>
+<p>Each task has a &ldquo;Number_of_Jobs&rdquo;. Although the number of jobs is used as a parameter in the learning process, the tasks that are being deplayed all consists of Jobs. These Jobs are represented in the table below</p>
+<p><br/></p>
+<p><img alt="Job Table" src="../../../images/JobTable.PNG" /></p>
+<p><br/>
+<br/>
+Distribution of the main learning parameters are listed below:</p>
+<p><img alt="ArgumentGraph" src="../../../images/RArgBarGraph.PNG" /></p>
+<p><br/>
+<br/></p>
+<p><img alt="NumberOfJobs" src="../../../images/RNumberOfJobs.PNG" /></p>
+<p><br/>
+<br/></p>
+<p><img alt="Period" src="../../../images/RPeriodBarGraph.PNG" /></p>
+<p><br/>
+<br/></p>
+<p><img alt="Priority" src="../../../images/RPriorityBarGraph.PNG" /></p>
               
             </div>
           </div>
@@ -187,10 +202,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../shallow-learning/" class="btn btn-neutral float-right" title="Shallow learning">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../about/" class="btn btn-neutral float-right" title="About">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../../analysis/schedulability-analysis/" class="btn btn-neutral" title="Schedulability Analysis"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../datageneration/" class="btn btn-neutral" title="Data Generation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -216,10 +231,10 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../../analysis/schedulability-analysis/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../datageneration/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../shallow-learning/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../../about/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
