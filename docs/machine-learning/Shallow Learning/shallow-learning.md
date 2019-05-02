@@ -1,12 +1,12 @@
 # Shallow Learning
 
-Shallow Learning represents the techniques that are not 'deep learning' or in the case of this project, those of which do not utilize a neural network or multi-layer perceptron. Although virtually any technique can be tested under the guise of 'shallow learning', we chose to focus on Support Vector Machines, k-Nearest Neibhbors (kNN), Logistic Regression, Gaussian Naive Bayes, and Decision Trees/Random Forests. While these algorithms each have their strenghts and weaknesses, their lightweight and easy implementation makes them easy to test and analyze. From the performance of these various algorithms, we can find import trends in the data. 
+Shallow Learning represents all the machine learning algorithms the techniques that are not 'deep learning' or in the case of this project, those of which do not utilize a layered-neural network or multi-layer perceptron. Although virtually any technique can be tested under the guise of 'shallow learning', we chose to focus on k-Nearest Neibhbors (kNN), Logistic Regression, Gaussian Naive Bayes, and Decision Trees/Random Forests (Support Vector Machine functionality is present, but the training was too long to extract meaningful results). The success of these algorithms is almost entirely dependent on the patterns that are present in the data. These algorithms have different strengths, and we are hoping to not only analyze how well these algorithms can perform, but also how they can be applied to embedded systems or online-machine learning. 
 
 ## Testing Setup
 
-The shallow learning models were taken from the Sci-kit learn python class. The current machine learning pipeline allows the user to develop his or her own shallow learning models if he or she does not wish to use those of sci-kit learn. This project uses Sci-kit learn as a beginning point. 
+The shallow learning models were taken from the Sci-kit learn python class. The current machine learning pipeline allows the user to develop his or her own shallow learning models if he or she does not wish to use those of sci-kit learn. The Machine Learning Pipeline currently wraps the sci-kit learn machine learning models and some of the important methods. 
 
-Testing can be done by training on the data, cross-validation, adn grid search. 
+Popular evaluation metrics on data include data splitting (train, validation, testing sets), k-fold cross-validation, and parameterized grid search for optimal hyperparameter search. 
 
 Given the extraordinary amount of time that grid search takes, a 'randomized' search was used instead. Both of these searches take a list of parameters specified by the user and cross checks them to obtain the best parameters. While a grid search will test every parameter value, the ranomized search searches only a small fraction of them. This is the default search that we used. The developer is welcome to revert to the exhaustive Grid search by toggling the parameter. However, the results presented below will show only the results done by a 'randomized' grid search and not an exhaustive one. 
 
