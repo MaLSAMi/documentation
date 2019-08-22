@@ -11,7 +11,7 @@ Clone the client-tools repository, move to the client-tools directory and execut
 git clone https://www.github.com/malsami/client-tools
 cd client-tools
 make distributor-init
-make make genode-init
+make genode-init
 make binaries OS-TARGET=focnados_pbxa9
 ```
 
