@@ -11,7 +11,8 @@ Here is an example of the first ten lines of the Task Table
 
 Each task has a "Number_of_Jobs". Although the number of jobs is used as a parameter in the learning process, the tasks that are being deplayed all consists of Jobs. These Jobs are represented in the table below
 
-<br/>
+  
+  <br/>
 
 ![Job Table](../img/JobTable.png)
 

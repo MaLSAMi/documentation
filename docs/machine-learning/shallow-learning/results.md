@@ -24,40 +24,47 @@ K-fold validation is the accepted metric in the machine learning community. The 
 Here are the results: 
 
 
-Mondorian Forest: 
+###Mondorian Forest: 
 
 
 
-![mf_roc](../../img/mondorianForestROC.png)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  ![mf_cm](../../img/mondorianForestCM.png)
+![mf_roc](../../img/mondorianForestROC.png)  
+![mf_cm](../../img/mondorianForestCM.png)
 
 
-Random Forest: 
+###Random Forest: 
 
-![rf_roc](../../img/randomForestROC.png)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  ![rf_cm](../../img/randomForestCM.png)
+![rf_roc](../../img/randomForestROC.png)  
+![rf_cm](../../img/randomForestCM.png)
 
-Logistic Regression: 
+###Logistic Regression: 
 
-![lf_roc](../../img/logisticRegressionROC.png)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  ![lf_cm](../../img/logisticRegressionCM.png)
-
-
-K-Nearest Neighbors (5-Uniform-Unweighted)
-
-![knn_roc](../../img/knnROC.png)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  ![knn_cm](../../img/knnCM.png)
-
-Gaussian Bayes:
-
-![gb_roc](../../img/gbROC.png)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  ![gb_cm](../../img/gbCM.png)
+![lf_roc](../../img/logisticRegressionROC.png)  
+![lf_cm](../../img/logisticRegressionCM.png)
 
 
+###K-Nearest Neighbors (5-Uniform-Unweighted)
 
-Multinomial Bayes:
+![knn_roc](../../img/knnROC.png)  
+![knn_cm](../../img/knnCM.png)
 
-![mb_roc](../../img/mbROC.png)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  ![mb_cm](../../img/mbCM.png)
+###Gaussian Bayes:
+
+![gb_roc](../../img/gbROC.png)  
+![gb_cm](../../img/gbCM.png)
 
 
-Bernoulli Bayes:
 
-![bb_roc](../../img/bernROC.png)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  ![bb_cm](../../img/bernCM.png)
+###Multinomial Bayes:
+
+![mb_roc](../../img/mbROC.png)  
+![mb_cm](../../img/mbCM.png)
+
+
+###Bernoulli Bayes:
+
+![bb_roc](../../img/bernROC.png)  
+![bb_cm](../../img/bernCM.png)
 
 
 
