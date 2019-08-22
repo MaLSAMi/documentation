@@ -52,5 +52,5 @@ https://github.com/malsami/genode<br />
 branch focnados_18.02_r78
 
 Checkpoint Restore and Taskloader for Genode 18.02 and focnados r78:<br />
-https://github.com:argos-research/operating-system.git<br />
+https://github.com/argos-research/operating-system.git<br />
 branch 18.02
