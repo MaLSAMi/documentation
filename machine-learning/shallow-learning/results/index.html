@@ -190,20 +190,27 @@
 <p>Along with a measure of accuracy, we wanted to measure the recall rate (number of true/false positives). This would give a better idea on the pattern matching abilities of these algorithms. Along with the ROC Curves, we used the confusion matrix which shows the distribution of predicted labels. This will ensure that a model is not overfitting by only predicting a particular label most of the time over another. </p>
 <p>K-fold validation is the accepted metric in the machine learning community. The models were trained with a <i>stratified-k-fold</i> validation in that an effort was made to balance the samples in each class. Since there was a skey of <b>Successful</b> to <b>Unsuccessful</b> tasksets, the folds naturally had more data that was of <i>Successful</i> tasksets than of the other. </p>
 <p>Here are the results: </p>
-<p>Mondorian Forest: </p>
-<p><img alt="mf_roc" src="../documentation/img/mondorianForestROC.png" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <img alt="mf_cm" src="../documentation/img/mondorianForestCM.png" /></p>
-<p>Random Forest: </p>
-<p><img alt="rf_roc" src="../documentation/img/randomForestROC.png" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <img alt="rf_cm" src="../documentation/img/randomForestCM.png" /></p>
-<p>Logistic Regression: </p>
-<p><img alt="lf_roc" src="../documentation/img/logisticRegressionROC.png" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <img alt="lf_cm" src="../documentation/img/logisticRegressionCM.png" /></p>
-<p>K-Nearest Neighbors (5-Uniform-Unweighted)</p>
-<p><img alt="knn_roc" src="../documentation/img/knnROC.png" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <img alt="knn_cm" src="../documentation/img/knnCM.png" /></p>
-<p>Gaussian Bayes:</p>
-<p><img alt="gb_roc" src="../documentation/img/gbROC.png" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <img alt="gb_cm" src="../documentation/img/gbCM.png" /></p>
-<p>Multinomial Bayes:</p>
-<p><img alt="mb_roc" src="../documentation/img/mbROC.png" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <img alt="mb_cm" src="../documentation/img/mbCM.png" /></p>
-<p>Bernoulli Bayes:</p>
-<p><img alt="bb_roc" src="../documentation/img/bernROC.png" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <img alt="bb_cm" src="../documentation/img/bernCM.png" /></p>
+<h3 id="mondorian-forest">Mondorian Forest:<a class="headerlink" href="#mondorian-forest" title="Permanent link">&para;</a></h3>
+<p><img alt="mf_roc" src="../../../img/mondorianForestROC.png" /><br />
+<img alt="mf_cm" src="../../../img/mondorianForestCM.png" /></p>
+<h3 id="random-forest">Random Forest:<a class="headerlink" href="#random-forest" title="Permanent link">&para;</a></h3>
+<p><img alt="rf_roc" src="../../../img/randomForestROC.png" /><br />
+<img alt="rf_cm" src="../../../img/randomForestCM.png" /></p>
+<h3 id="logistic-regression">Logistic Regression:<a class="headerlink" href="#logistic-regression" title="Permanent link">&para;</a></h3>
+<p><img alt="lf_roc" src="../../../img/logisticRegressionROC.png" /><br />
+<img alt="lf_cm" src="../../../img/logisticRegressionCM.png" /></p>
+<h3 id="k-nearest-neighbors-5-uniform-unweighted">K-Nearest Neighbors (5-Uniform-Unweighted)<a class="headerlink" href="#k-nearest-neighbors-5-uniform-unweighted" title="Permanent link">&para;</a></h3>
+<p><img alt="knn_roc" src="../../../img/knnROC.png" /><br />
+<img alt="knn_cm" src="../../../img/knnCM.png" /></p>
+<h3 id="gaussian-bayes">Gaussian Bayes:<a class="headerlink" href="#gaussian-bayes" title="Permanent link">&para;</a></h3>
+<p><img alt="gb_roc" src="../../../img/gbROC.png" /><br />
+<img alt="gb_cm" src="../../../img/gbCM.png" /></p>
+<h3 id="multinomial-bayes">Multinomial Bayes:<a class="headerlink" href="#multinomial-bayes" title="Permanent link">&para;</a></h3>
+<p><img alt="mb_roc" src="../../../img/mbROC.png" /><br />
+<img alt="mb_cm" src="../../../img/mbCM.png" /></p>
+<h3 id="bernoulli-bayes">Bernoulli Bayes:<a class="headerlink" href="#bernoulli-bayes" title="Permanent link">&para;</a></h3>
+<p><img alt="bb_roc" src="../../../img/bernROC.png" /><br />
+<img alt="bb_cm" src="../../../img/bernCM.png" /></p>
               
             </div>
           </div>
