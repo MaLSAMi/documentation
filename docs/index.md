@@ -13,7 +13,7 @@ You can find a general description of the project MaLSAMi in the [About Section]
 
 ## Prerequisite
 
-To contribute to this documentation please download the source code from the [MaLSAMi Documentation Repository]()
+To contribute to this documentation please download the source code from the [MaLSAMi Documentation Repository](https://github.com/malsami/documentation)
 and follow the instructions at [MkDocs](http://www.mkdocs.org/#installation).
 
 ## Documentation structure
