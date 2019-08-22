@@ -30,27 +30,25 @@ This section covers the updates for Genode and Fiasco.OC.
 
 
 ## Setup 
-The default setup listed below is based on Genode 16.08 and foc r67.<br />
+The default setup listed below is based on Genode 16.08 and foc r67.
 To use the new versions Genode 18.02 and foc r78 please take a look at "Structure of directories".
 
-If you like to use a VM for this project,<br />
+If you like to use a VM for this project,
 please follow the steps on the [ArgOS-research website](https://argos-research.github.io/documentation/install.html).
 
-If you like to use your native machine,<br />
-just clone https://github.com/argos-research/operating-system.git branch master<br />
-and execute ./setup.sh .<br />
-This will build the project "dom0-HW" on platform "focnados_panda" by default.<br />
+If you like to use your native machine,
+just `git clone https://github.com/argos-research/operating-system.git`
+and execute `./setup.sh` .
+This will build the project "dom0-HW" on platform "focnados_panda" by default.
 Please adjust the MAKEFILE to your needs.
 
 ## Structure of directories
-Genode 18.02 and foc r78:<br />
-https://github.com/malsami/genode<br />
-branch 18.02_r78
 
-Genode 18.02 and focnados r78:<br />
-https://github.com/malsami/genode<br />
-branch focnados_18.02_r78
+Genode 18.02 and foc r78:  
+[Malsami Genode/branch_18.02_r78](https://github.com/malsami/genode/tree/18.02_r78)
 
-Checkpoint Restore and Taskloader for Genode 18.02 and focnados r78:<br />
-https://github.com/argos-research/operating-system.git<br />
-branch 18.02
+Genode 18.02 and focnados r78:  
+[Malsami Genode/branch focnados_18.02_r78](https://github.com/malsami/genode/tree/focnados_18.02_r78)
+
+Checkpoint Restore and Taskloader for Genode 18.02 and focnados r78:  
+[Malsami Genode/branch 18.02](https://github.com/argos-research/operating-system/tree/18.02)
