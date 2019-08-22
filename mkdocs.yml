@@ -18,7 +18,7 @@ pages:
         - 'Schedulability Analysis' : 'analysis/schedulability-analysis.md'
     - 'Machine Learning' :
         - 'Machine Learning' : 'machine-learning/machine-learning.md'
-        - 'Shallow learning': 'machine-learning/shallow-learning.md'
+        - 'Shallow learning': 'machine-learning/shallow-learning/shallow-learning.md'
         - 'Deep Learning': 'machine-learning/deep-learning.md'
         - Feed Forward Network : 'machine-learning/nets/ffn.md'
     - Genode : 'genode/genode.md'
