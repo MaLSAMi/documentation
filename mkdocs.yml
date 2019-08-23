@@ -19,8 +19,10 @@ pages:
     - 'Machine Learning' :
         - 'Machine Learning' : 'machine-learning/machine-learning.md'
         - 'Shallow learning': 'machine-learning/shallow-learning/shallow-learning.md'
+        - 'SL Data analysis': 'machine-learning/analysis_visualization.md'
         - 'Shallow learning/Results': 'machine-learning/shallow-learning/results.md'
         - 'Deep Learning': 'machine-learning/deep-learning.md'
+        - 'Feed Forward Neural Network': 'machine-learning/nets/ffn.md'
     - Genode : 'genode/genode.md'
     - Data Generation : 
         - 'Distributor' : 'data-generation/distributor.md'

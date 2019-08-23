@@ -34,5 +34,4 @@ taskParameters = {
 In the example above, the indicated values (a,b) indicates the parameter value will be in the range between a and b. As shown above, some parameters such as *CAPS*, *COREOFFSET*, *OFFSET*, *DEADLINE*, *QUOTA* will all remain constant due to how Genode works. Although we need these parameters in order to simulate the tasks, their constant nature will not give any further analysis in terms of Genode. Therefore, we will turn our focus to the parameters that are variable. This will give a better understanding on whether these parameters have any influence on success of the tasksets. 
 
 
-
-https://towardsdatascience.com/the-next-level-of-data-visualization-in-python-dd6e99039d5e
+[For visualization see also](https://towardsdatascience.com/the-next-level-of-data-visualization-in-python-dd6e99039d5e)
