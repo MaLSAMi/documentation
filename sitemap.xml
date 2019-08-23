@@ -5,13 +5,13 @@
         
     <url>
      <loc>/</loc>
-     <lastmod>2019-08-22</lastmod>
+     <lastmod>2019-08-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/first-steps/</loc>
-     <lastmod>2019-08-22</lastmod>
+     <lastmod>2019-08-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -21,13 +21,13 @@
         
     <url>
      <loc>/analysis/requirements-analysis/</loc>
-     <lastmod>2019-08-22</lastmod>
+     <lastmod>2019-08-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/analysis/schedulability-analysis/</loc>
-     <lastmod>2019-08-22</lastmod>
+     <lastmod>2019-08-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -37,25 +37,37 @@
         
     <url>
      <loc>/machine-learning/machine-learning/</loc>
-     <lastmod>2019-08-22</lastmod>
+     <lastmod>2019-08-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/machine-learning/shallow-learning/shallow-learning/</loc>
-     <lastmod>2019-08-22</lastmod>
+     <lastmod>2019-08-23</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/machine-learning/analysis_visualization/</loc>
+     <lastmod>2019-08-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/machine-learning/shallow-learning/results/</loc>
-     <lastmod>2019-08-22</lastmod>
+     <lastmod>2019-08-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/machine-learning/deep-learning/</loc>
-     <lastmod>2019-08-22</lastmod>
+     <lastmod>2019-08-23</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/machine-learning/nets/ffn/</loc>
+     <lastmod>2019-08-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -64,7 +76,7 @@
     
     <url>
      <loc>/genode/genode/</loc>
-     <lastmod>2019-08-22</lastmod>
+     <lastmod>2019-08-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -73,25 +85,25 @@
         
     <url>
      <loc>/data-generation/distributor/</loc>
-     <lastmod>2019-08-22</lastmod>
+     <lastmod>2019-08-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/data-generation/monitor/</loc>
-     <lastmod>2019-08-22</lastmod>
+     <lastmod>2019-08-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/data-generation/datageneration/</loc>
-     <lastmod>2019-08-22</lastmod>
+     <lastmod>2019-08-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/data-generation/data-visualization/</loc>
-     <lastmod>2019-08-22</lastmod>
+     <lastmod>2019-08-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -100,7 +112,7 @@
     
     <url>
      <loc>/about/</loc>
-     <lastmod>2019-08-22</lastmod>
+     <lastmod>2019-08-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
